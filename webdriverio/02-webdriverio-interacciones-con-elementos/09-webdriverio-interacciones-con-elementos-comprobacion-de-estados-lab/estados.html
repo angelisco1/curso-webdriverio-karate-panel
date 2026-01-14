@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprobación de estados</title>
+  <style>
+    body {
+        font-family: sans-serif;
+        padding: 20px;
+        background-color: #f9f9f9;
+    }
+
+    .caja {
+        width: 150px;
+        height: 150px;
+        border: 2px solid #333;
+        background-color: #ddd;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+    }
+
+    button, input {
+        margin: 5px;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    select {
+        margin: 5px;
+    }
+
+    .fila-contenedor {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        margin-bottom: 30px;
+        align-items: flex-start;
+    }
+
+    .fila-controles {
+        margin-bottom: 20px;
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .contenedor-overlay {
+        position: relative;
+        height: 80px;
+        margin-bottom: 30px;
+        border: 1px dashed #ccc;
+    }
+
+    #btn-tapado {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 200px;
+        height: 50px;
+        z-index: 1;
+    }
+
+    #overlay {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 200px;
+        height: 50px;
+        background: rgba(200, 0, 0, 0.9);
+        z-index: 100;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid darkred;
+    }
+
+    #cerrar-overlay {
+        position: absolute;
+        top: 2px;
+        right: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        font-family: sans-serif;
+        color: white;
+        background: rgba(0,0,0,0.3);
+        padding: 0 5px;
+        border-radius: 3px;
+    }
+
+    #cerrar-overlay:hover {
+        background: rgba(0,0,0,0.6);
+    }
+
+  </style>
+</head>
+<body>
+    <h1>Comprobación de estados</h1>
+
+    <div id="fila-cajas" class="fila-contenedor">
+        <div id="caja-visible" class="caja">Visible</div>
+        <div id="caja-invisible" class="caja" style="visibility: hidden;">Invisible</div>
+    </div>
+
+    <div class="fila-controles" id="fila-botones">
+        <button id="btn-toggle-caja">Mostrar/ocultar caja</button>
+        <button id="btn-habilitado">Habilitado</button>
+        <button id="btn-toggle-estado" onclick="toggleEstadoBoton()">Deshabilitar el otro botón</button>
+        <button id="btn-deshabilitado" disabled>Deshabilitado</button>
+    </div>
+
+    <div class="contenedor-overlay">
+        <button id="btn-tapado">Botón tapado</button>
+        <div id="overlay">
+            Soy un elemento que tapa
+            <span id="cerrar-overlay">x</span>
+        </div>
+    </div>
+
+    <div class="fila-controles" id="fila-formularios">
+
+        <span style="margin-right: 15px;">
+            <label><input type="radio" name="color" id="radio-rojo" value="rojo">Rojo</label>
+            <label><input type="radio" name="color" id="radio-azul" value="azul">Azul</label>
+        </span>
+
+
+        <span style="margin-right: 15px;">
+            <label><input type="checkbox" id="chk-seleccionado" checked>Seleccionado</label>
+            <label><input type="checkbox" id="chk-no-seleccionado">No seleccionado</label>
+        </span>
+
+        <select id="select-opciones">
+            <option value="op1">Opción 1</option>
+            <option value="op2" selected>Opción 2</option>
+            <option value="op3">Opción 3</option>
+        </select>
+    </div>
+
+    <div class="fila-controles" id="fila-inputs">
+        <input type="text" id="input-foco" placeholder="Haz click para foco">
+        <input type="text" id="input-valor" value="Valor inicial">
+    </div>
+
+    <div class="fila-controles" id="fila-textos">
+        <div id="texto-completo" style="margin: 10px 0; padding: 10px; border: 1px dashed #999;">Este es un texto completo para verificar.</div>
+        <div id="texto-con-clase" class="mi-clase-especial" data-test="atributo-prueba" style="font-style: italic;">Tiene clase y atributo</div>
+        <div id="caja-oculta" class="caja" style="display: none;">Oculta</div>
+    </div>
+
+    <script>
+    document.getElementById('btn-toggle-caja').addEventListener('click', () => {
+      const caja = document.getElementById('caja-visible')
+      if (caja.style.display === 'none') {
+        caja.style.display = 'flex'
+        caja.textContent = 'Visible'
+      } else {
+        caja.style.display = 'none'
+      }
+    })
+
+
+    function toggleEstadoBoton() {
+        const btn = document.getElementById('btn-habilitado')
+        if (btn.disabled) {
+            btn.disabled = false
+            btn.textContent = 'Habilitado'
+        } else {
+            btn.disabled = true
+            btn.textContent = 'Ahora deshabilitado'
+        }
+    }
+
+
+    document.getElementById('cerrar-overlay').addEventListener('click', (e) => {
+        e.stopPropagation()
+        document.getElementById('overlay').style.display = 'none'
+    })
+
+    setTimeout(() => {
+        const nuevoElemento = document.createElement('div')
+        nuevoElemento.id = 'elemento-perezoso'
+        nuevoElemento.textContent = 'Aparecí tarde'
+        nuevoElemento.className = 'caja'
+        nuevoElemento.style.backgroundColor = '#b8e994'
+        document.getElementById('fila-cajas').appendChild(nuevoElemento)
+    }, 2000)
+    </script>
+</body>
+</html>

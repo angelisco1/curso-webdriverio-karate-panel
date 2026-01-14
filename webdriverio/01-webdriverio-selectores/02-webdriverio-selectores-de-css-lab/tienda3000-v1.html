@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tienda 3000 - v1.0</title>
+    <style>
+        body { font-family: sans-serif; color: #333; margin: 0; padding: 20px; }
+        .contenedor-principal { display: flex; gap: 20px; }
+        .panel-izquierdo { flex: 2; }
+        .panel-derecho { flex: 1; border-left: 1px solid #ccc; padding-left: 20px; }
+
+        .caja-producto { border: 1px solid #eee; margin-bottom: 15px; padding: 15px; }
+        .descripcion { font-weight: bold; margin-bottom: 5px; }
+        .etiqueta-precio { color: #555; display: block; margin-bottom: 10px; }
+
+        .btn {
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 14px;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .btn:hover { background: #e0e0e0; }
+
+        #contenedor_carrito div { padding: 5px 0; border-bottom: 1px solid #eee; }
+
+        .boton-eliminar {
+            cursor: pointer;
+            float: right;
+            font-size: 12px;
+            color: red;
+            text-decoration: underline;
+            border: none;
+            background: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Tienda 3000</h1>
+
+    <div class="contenedor-principal">
+        <div class="panel-izquierdo">
+            <h3>Productos</h3>
+
+            <div class="caja-producto" id="p_1001">
+                <div class="descripcion">MacBook Mini</div>
+                <span class="etiqueta-precio">999.00</span>
+                <span class="btn" data-id="1001" data-nombre="MacBook Mini" data-precio="999">Añadir al carrito</span>
+            </div>
+
+            <div class="caja-producto" id="prod_gen_847382">
+                <div class="descripcion">Nothing Phone 3</div>
+                <span class="etiqueta-precio">699.00</span>
+                <div class="btn" data-id="2002" data-nombre="Nothing Phone 3" data-precio="699">Añadir al carrito</div>
+            </div>
+
+            <div class="caja-producto">
+                <div class="descripcion">Auriculares Sony WH-1000XM5</div>
+                <span class="etiqueta-precio">299.00</span>
+                <a href="#" class="btn" data-id="3003" data-nombre="Auriculares Sony WH-1000XM5" data-precio="299">Añadir al carrito</a>
+            </div>
+
+            <div class="caja-producto">
+                <div>
+                    <div>
+                        <div class="descripcion">Monitor Xiaomi 34"</div>
+                    </div>
+                </div>
+                <span class="etiqueta-precio">399.00</span>
+                <span>
+                    <span class="btn" data-id="4004" data-nombre="Monitor Xiaomi 34 Pulgadas" data-precio="399">Añadir al carrito</span>
+                </span>
+            </div>
+
+        </div>
+
+        <div class="panel-derecho">
+            <h3>Cesta</h3>
+            <div id="contenedor_carrito">
+                <div id="mensaje_vacio">Carrito vacío</div>
+            </div>
+            <br>
+            <div>Total: <span id="valor_total">0</span></div>
+            <br>
+            <button id="boton-pedido" style="padding: 5px 10px; cursor: pointer;">Realizar Pedido</button>
+        </div>
+    </div>
+
+    <script>
+        var total = 0
+
+        function agregarProducto(id, nombre, precio) {
+            var carrito = document.getElementById('contenedor_carrito')
+            var vacio = document.getElementById('mensaje_vacio')
+            if(vacio) {
+                vacio.remove()
+            }
+
+            var nuevoIdProducto = 'producto_' + Math.floor(Math.random() * 1000)
+            var nuevoHtmlProducto = "<div id='" + nuevoIdProducto + "'>" +
+                              nombre + " - " + precio +
+                              " <button class='boton-eliminar' data-precio='" + precio + "'>Quitar</button>" +
+                              "</div>"
+
+            carrito.insertAdjacentHTML('beforeend', nuevoHtmlProducto)
+            actualizarTotal(precio)
+        }
+
+        function quitarProducto(el, precio) {
+            el.parentNode.remove()
+            actualizarTotal(-precio)
+        }
+
+        function actualizarTotal(val) {
+            total += val
+            if (total < 0) total = 0
+            document.getElementById('valor_total').innerText = total
+
+            var carrito = document.getElementById('contenedor_carrito')
+            if(total === 0 && carrito.children.length === 0) {
+                 carrito.innerHTML = "<div id='mensaje_vacio'>Carrito vacío</div>"
+            }
+        }
+
+        function realizarPedido() {
+            if(total > 0) {
+                alert("Procesando pedido...")
+                document.getElementById('contenedor_carrito').innerHTML = "<div id='mensaje_vacio'>Carrito vacío</div>"
+                total = 0
+                document.getElementById('valor_total').innerText = 0
+            } else {
+                alert("No hay productos")
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var botones = document.querySelectorAll('.btn')
+            for (var i = 0; i < botones.length; i++) {
+                botones[i].addEventListener('click', function(e) {
+                    e.preventDefault()
+                    var id = this.getAttribute('data-id')
+                    var nombre = this.getAttribute('data-nombre')
+                    var precio = parseFloat(this.getAttribute('data-precio'))
+                    agregarProducto(id, nombre, precio)
+                })
+            }
+
+            var botonPedido = document.getElementById('boton-pedido')
+            if(botonPedido) {
+                botonPedido.addEventListener('click', function() {
+                    realizarPedido()
+                })
+            }
+
+            var contenedorCarrito = document.getElementById('contenedor_carrito')
+            contenedorCarrito.addEventListener('click', function(e) {
+                if (e.target && e.target.classList.contains('boton-eliminar')) {
+                    var precio = parseFloat(e.target.getAttribute('data-precio'))
+                    quitarProducto(e.target, precio)
+                }
+            })
+
+            agregarProducto(1001, 'MacBook Mini', 999)
+            agregarProducto(2002, 'Nothing Phone 3', 699)
+        })
+    </script>
+
+</body>
+</html>

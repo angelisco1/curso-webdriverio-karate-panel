@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkboxes</title>
+  <style>
+    body {
+      height: 100vh;
+      width: 100vw;
+      background-color: #242424;
+    }
+
+    .center {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    div {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="center">
+    <div id="hobbies" data-test="hobbies">
+      <div><label for="hobby1"><input type="checkbox" id="hobby1" name="hobby" value="cine">Cine</label></div>
+      <div><label for="hobby2"><input type="checkbox" id="hobby2" name="hobby" value="musica">Música</label></div>
+      <div><label for="hobby3"><input type="checkbox" id="hobby3" name="hobby" value="series" checked>Series</label></div>
+      <div><label for="hobby4"><input type="checkbox" id="hobby4" name="hobby" value="tenis" checked>Tenis</label></div>
+      <div><label for="hobby5"><input type="checkbox" id="hobby5" name="hobby" value="baloncesto">Baloncesto</label></div>
+    </div>
+  </div>
+</body>
+</html>
