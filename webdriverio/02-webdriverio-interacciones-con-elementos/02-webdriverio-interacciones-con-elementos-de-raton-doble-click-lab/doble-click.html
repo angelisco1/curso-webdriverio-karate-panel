@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Click</title>
+  <style>
+    body {
+      height: 100vh;
+      width: 100vw;
+      background-color: #242424;
+    }
+
+    .center {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #caja-doble-click {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+    }
+
+    #caja-doble-click.db-clicked {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div class="center">
+    <div id="caja-doble-click"></div>
+  </div>
+
+  <script>
+    document.getElementById('caja-doble-click').addEventListener('dblclick', (event) => {
+      event.target.className = event.target.className.includes('db-clicked') ? '' : 'db-clicked';
+    })
+  </script>
+</body>
+</html>

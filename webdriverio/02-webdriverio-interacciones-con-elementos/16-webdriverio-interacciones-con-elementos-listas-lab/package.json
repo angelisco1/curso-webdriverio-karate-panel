@@ -1,0 +1,26 @@
+{
+  "name": "16-webdriverio-interacciones-con-elementos-listas-lab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "wdio": "wdio run ./wdio.conf.js",
+    "start": "http-server . -p 4016"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@wdio/cli": "^9.23.0",
+    "@wdio/local-runner": "^9.23.0",
+    "@wdio/mocha-framework": "^9.23.0",
+    "@wdio/spec-reporter": "^9.20.0",
+    "@wdio/types": "^9.23.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}

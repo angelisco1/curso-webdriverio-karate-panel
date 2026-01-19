@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scroll</title>
+  <style>
+    body {
+      height: 100vh;
+      width: 100vw;
+      background-color: #242424;
+      margin: 0;
+      color: white;
+      font-family: sans-serif;
+    }
+
+    .centrado {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    #lista-scroll {
+        width: 300px;
+        height: 400px;
+        overflow-y: scroll;
+        border: 2px solid #444;
+        background-color: #333;
+        padding: 10px;
+    }
+
+    .elemento {
+        padding: 15px;
+        border-bottom: 1px solid #555;
+        text-align: center;
+    }
+
+    .elemento:hover {
+        background-color: #444;
+    }
+
+    #objetivo {
+        background-color: #007bff;
+        color: white;
+        font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="centrado">
+    <h1>Scroll hasta encontrar el objetivo</h1>
+    <div id="lista-scroll">
+    </div>
+    <div id="mensaje" style="margin-top: 20px; color: #4caf50; font-weight: bold; display: none;">Encontrado!</div>
+  </div>
+
+  <script>
+    const lista = document.getElementById('lista-scroll')
+    const totalElementos = 100
+    const posicionObjetivo = 85
+
+    for (let i = 1; i <= totalElementos; i++) {
+        const div = document.createElement('div')
+        div.className = 'elemento'
+
+        if (i === posicionObjetivo) {
+            div.id = 'target'
+            div.textContent = 'OBJETIVO (' + i + ')'
+            div.onclick = function() {
+                document.getElementById('mensaje').style.display = 'block'
+            }
+        } else {
+            div.textContent = 'Elemento ' + i
+        }
+
+        lista.appendChild(div)
+    }
+  </script>
+</body>
+</html>

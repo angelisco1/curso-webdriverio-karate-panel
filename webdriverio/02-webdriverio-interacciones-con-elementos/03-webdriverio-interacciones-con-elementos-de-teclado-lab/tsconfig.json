@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "types": ["node", "webdriverio/async", "@wdio/globals/types", "@wdio/mocha-framework"],
+        "target": "es2022",
+        "module": "commonjs",
+        "skipLibCheck": true,
+        "strict": true
+    }
+}

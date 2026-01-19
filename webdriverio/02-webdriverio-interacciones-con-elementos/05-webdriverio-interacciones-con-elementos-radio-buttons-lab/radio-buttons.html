@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radio Buttons</title>
+  <style>
+    body {
+      height: 100vh;
+      width: 100vw;
+      background-color: #242424;
+    }
+
+    .center {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    div {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="center">
+    <div id="colores-favoritos">
+      <h3>Elige tu color favorito:</h3>
+      <div><input type="radio" id="rojo" name="color" value="rojo"> Rojo</div>
+      <div><input type="radio" id="azul" name="color" value="azul" checked> Azul</div>
+      <div><input type="radio" id="verde" name="color" value="verde"> Verde</div>
+      <div><input type="radio" id="amarillo" name="color" value="amarillo"> Amarillo</div>
+    </div>
+  </div>
+</body>
+</html>

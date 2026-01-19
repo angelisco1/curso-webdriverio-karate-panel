@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de transacciones</title>
+    <style>
+        body { font-family: sans-serif; color: #333; margin: 0; padding: 20px; }
+        .contenedor { max-width: 1200px; margin: 0 auto; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #eee; padding: 12px; text-align: left; }
+        th { background-color: #f0f0f0; cursor: pointer; user-select: none; }
+        th:hover { background-color: #e0e0e0; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+
+        .positivo { color: green; font-weight: bold; }
+        .negativo { color: red; font-weight: bold; }
+
+        h1 { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <h1>Historial de transacciones</h1>
+
+        <table id="tablaTransacciones">
+            <thead>
+                <tr>
+                    <th data-sort="nombre">Nombre acción</th>
+                    <th data-sort="ticker">Ticker</th>
+                    <th data-sort="cantidad">Cantidad</th>
+                    <th data-sort="precioCompra">Precio compra</th>
+                    <th data-sort="precioVenta">Precio venta</th>
+                    <th data-sort="gananciaPerdida">Ganancias/pérdidas</th>
+                    <th data-sort="fechaCompra">Fecha compra</th>
+                    <th data-sort="fechaVenta">Fecha venta</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpoTabla">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const transacciones = [
+            { nombre: 'Apple Inc.', ticker: 'AAPL', cantidad: 10, precioCompra: 150.00, precioVenta: 175.50, fechaCompra: '2023-01-15', fechaVenta: '2023-06-20' },
+            { nombre: 'Tesla Inc.', ticker: 'TSLA', cantidad: 5, precioCompra: 200.00, precioVenta: 180.00, fechaCompra: '2023-02-10', fechaVenta: '2023-05-05' },
+            { nombre: 'Microsoft Corp.', ticker: 'MSFT', cantidad: 15, precioCompra: 250.00, precioVenta: 310.00, fechaCompra: '2023-03-01', fechaVenta: '2023-08-15' },
+            { nombre: 'Amazon.com Inc.', ticker: 'AMZN', cantidad: 20, precioCompra: 100.00, precioVenta: 130.00, fechaCompra: '2023-01-20', fechaVenta: '2023-07-10' },
+            { nombre: 'NVIDIA Corp.', ticker: 'NVDA', cantidad: 8, precioCompra: 280.00, precioVenta: 450.00, fechaCompra: '2023-04-05', fechaVenta: '2023-09-01' }
+        ]
+
+        transacciones.forEach(t => {
+            t.gananciaPerdida = (t.precioVenta - t.precioCompra) * t.cantidad
+        })
+
+        let ordenActual = { columna: null, direccion: 'asc' }
+
+        function renderizarTabla(datos) {
+            const cuerpo = document.getElementById('cuerpoTabla')
+            cuerpo.innerHTML = ''
+
+            datos.forEach(t => {
+                const fila = document.createElement('tr')
+                const claseGananciaPerdida = t.gananciaPerdida >= 0 ? 'positivo' : 'negativo'
+
+                fila.innerHTML = `
+                    <td>${t.nombre}</td>
+                    <td>${t.ticker}</td>
+                    <td>${t.cantidad}</td>
+                    <td>$${t.precioCompra.toFixed(2)}</td>
+                    <td>$${t.precioVenta.toFixed(2)}</td>
+                    <td class="${claseGananciaPerdida}">$${t.gananciaPerdida.toFixed(2)}</td>
+                    <td>${t.fechaCompra}</td>
+                    <td>${t.fechaVenta}</td>
+                `
+                cuerpo.appendChild(fila)
+            })
+        }
+
+        function ordenarDatos(columna) {
+            const direccion = ordenActual.columna === columna && ordenActual.direccion === 'asc' ? 'desc' : 'asc'
+            ordenActual = { columna, direccion }
+
+            const datosOrdenados = [...transacciones].sort((a, b) => {
+                let valorA = a[columna]
+                let valorB = b[columna]
+
+                if (typeof valorA === 'string') valorA = valorA.toLowerCase()
+                if (typeof valorB === 'string') valorB = valorB.toLowerCase()
+
+                if (valorA < valorB) return direccion === 'asc' ? -1 : 1
+                if (valorA > valorB) return direccion === 'asc' ? 1 : -1
+                return 0
+            })
+
+            renderizarTabla(datosOrdenados)
+        }
+
+        document.querySelectorAll('th[data-sort]').forEach(th => {
+            th.addEventListener('click', () => {
+                const columna = th.getAttribute('data-sort')
+                ordenarDatos(columna)
+            })
+        })
+
+        renderizarTabla(transacciones)
+    </script>
+</body>
+</html>
