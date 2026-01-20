@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esperas en WebdriverIO</title>
+    <style>
+        body { font-family: sans-serif; color: #333; margin: 0; padding: 20px; background-color: #f9f9f9; }
+        .contenedor { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border: 1px solid #eee; }
+
+        h1 { margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        section { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+
+        button {
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #333;
+            transition: background 0.2s;
+        }
+        button:hover { background: #e0e0e0; }
+        button:disabled {
+            background-color: #cccccc;
+            color: #666666;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .mensaje-estado { margin-top: 10px; font-weight: bold; color: #2ecc71; }
+        .oculto { display: none !important; }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: girar 2s linear infinite;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        @keyframes girar { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        .backdrop {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-contenido {
+            background: white;
+            padding: 20px;
+            border-radius: 4px;
+            width: 300px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .notificacion {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+        }
+        .notificacion.mostrar { visibility: visible; animation: aparecer 0.5s, desaparecer 0.5s 2.5s; }
+
+        @keyframes aparecer { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+        @keyframes desaparecer { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <h1>Laboratorio de esperas</h1>
+
+        <section>
+            <h3>Elemento aparece (5s)</h3>
+            <p>Haz clic en el botón y espera a que aparezca el texto.</p>
+            <button id="boton-aparecer-perezoso" data-test="boton-aparecer-perezoso">Iniciar temporizador (5s)</button>
+            <div id="texto-perezoso" class="mensaje-estado oculto" data-test="texto-perezoso">Aparecí después de 5 segundos!</div>
+        </section>
+
+        <section>
+            <h3>Elemento desaparece (5s)</h3>
+            <p>Haz clic en el botón y espera a que el texto desaparezca.</p>
+            <button id="boton-desaparecer-perezoso" data-test="boton-desaparecer-perezoso">Iniciar temporizador (5s)</button>
+            <div id="texto-a-eliminar" class="mensaje-estado" style="color: #e74c3c;" data-test="texto-a-eliminar">Desapareceré en 5 segundos!</div>
+        </section>
+
+        <section>
+            <h3>Spinner y simulación AJAX</h3>
+            <p>Simula una petición de red con un spinner de carga.</p>
+            <button id="boton-cargar-datos" data-test="boton-cargar-datos">Cargar datos (aleatorio 3-6s)</button>
+            <br>
+            <div id="spinner" class="spinner oculto" data-test="spinner"></div>
+            <div id="contenido-ajax" class="mensaje-estado oculto" data-test="contenido-ajax">Datos cargados con éxito!</div>
+        </section>
+
+        <section>
+            <h3>Modal perezoso</h3>
+            <p>El modal tarda 3 segundos en renderizarse en el DOM después de hacer clic.</p>
+            <button id="boton-mostrar-modal" data-test="boton-mostrar-modal">Abrir modal (delay 3s)</button>
+        </section>
+
+        <section>
+            <h3>Notificación toast</h3>
+            <p>La notificación aparece después de 2s y permanece durante 3s.</p>
+            <button id="boton-mostrar-notificacion" data-test="boton-mostrar-notificacion">Mostrar notificación</button>
+        </section>
+
+        <section>
+            <h3>Habilitar botón (waitForEnabled)</h3>
+            <p>El botón de acción está deshabilitado. Se habilitará 3s después de pulsar "Activar".</p>
+            <button id="boton-activar" data-test="boton-activar">Activar (3s)</button>
+            <button id="boton-accion" disabled data-test="boton-accion" style="margin-left: 10px;">Acción bloqueada</button>
+            <div id="mensaje-habilitado" class="mensaje-estado oculto" data-test="mensaje-habilitado">Botón habilitado!</div>
+        </section>
+
+        <section>
+            <h3>Existencia en DOM (waitForExist)</h3>
+            <p>El elemento no existe en el HTML. Se creará dinámicamente a los 3s.</p>
+            <button id="boton-agregar-dom" data-test="boton-agregar-dom">Crear elemento (3s)</button>
+            <div id="contenedor-dom" style="margin-top: 10px; min-height: 20px;"></div>
+        </section>
+
+        <section>
+            <h3>Cambio de texto (waitUntil)</h3>
+            <p>Esperar a que el texto cambie de estado.</p>
+            <button id="boton-cambiar-texto" data-test="boton-cambiar-texto">Iniciar proceso (3s)</button>
+            <div id="estado-proceso" data-test="estado-proceso" style="margin-top: 10px; font-weight: bold; color: orange;">En espera...</div>
+        </section>
+
+    </div>
+
+    <div id="notificacion" class="notificacion" data-test="notificacion">Operación realizada con éxito!</div>
+
+    <div id="modal" class="backdrop oculto" data-test="backdrop">
+        <div class="modal-contenido">
+            <h4>Términos y condiciones</h4>
+            <p>Este es un modal que apareció después de un tiempo.</p>
+            <button id="boton-cerrar-modal" data-test="boton-cerrar-modal">Cerrar</button>
+        </div>
+    </div>
+
+    <script>
+        const botonAparecer = document.getElementById('boton-aparecer-perezoso')
+        const textoAparecer = document.getElementById('texto-perezoso')
+
+        botonAparecer.addEventListener('click', () => {
+            botonAparecer.disabled = true
+            botonAparecer.textContent = 'Esperando...'
+            setTimeout(() => {
+                textoAparecer.classList.remove('oculto')
+                botonAparecer.textContent = 'Hecho'
+                botonAparecer.disabled = false
+            }, 5000)
+        })
+
+        const botonDesaparecer = document.getElementById('boton-desaparecer-perezoso')
+        const textoDesaparecer = document.getElementById('texto-a-eliminar')
+
+        botonDesaparecer.addEventListener('click', () => {
+            botonDesaparecer.disabled = true
+            botonDesaparecer.textContent = 'Esperando...'
+            setTimeout(() => {
+                textoDesaparecer.classList.add('oculto')
+                botonDesaparecer.textContent = 'Hecho'
+                botonDesaparecer.disabled = false
+            }, 5000)
+        })
+
+        const botonCargar = document.getElementById('boton-cargar-datos')
+        const spinner = document.getElementById('spinner')
+        const contenido = document.getElementById('contenido-ajax')
+
+        botonCargar.addEventListener('click', () => {
+            contenido.classList.add('oculto')
+            spinner.classList.remove('oculto')
+            botonCargar.disabled = true
+
+            const timeout = Math.floor(Math.random() * (6000 - 3000 + 1) + 3000)
+
+            setTimeout(() => {
+                spinner.classList.add('oculto')
+                contenido.classList.remove('oculto')
+                botonCargar.disabled = false
+            }, timeout)
+        })
+
+        const botonModal = document.getElementById('boton-mostrar-modal')
+        const modal = document.getElementById('modal')
+        const botonCerrarModal = document.getElementById('boton-cerrar-modal')
+
+        botonModal.addEventListener('click', () => {
+            botonModal.textContent = 'Cargando modal...'
+            setTimeout(() => {
+                modal.classList.remove('oculto')
+                botonModal.textContent = 'Abrir modal (delay 3s)'
+            }, 3000)
+        })
+
+        botonCerrarModal.addEventListener('click', () => {
+            modal.classList.add('oculto')
+        })
+
+        const botonNotificacion = document.getElementById('boton-mostrar-notificacion')
+        const notificacion = document.getElementById('notificacion')
+
+        botonNotificacion.addEventListener('click', () => {
+            setTimeout(() => {
+                notificacion.className = 'notificacion mostrar'
+                setTimeout(() => {
+                    notificacion.className = notificacion.className.replace('mostrar', '')
+                }, 3000)
+            }, 2000)
+        })
+
+        const botonActivar = document.getElementById('boton-activar')
+        const botonAccion = document.getElementById('boton-accion')
+        const mensajeHabilitado = document.getElementById('mensaje-habilitado')
+
+        botonActivar.addEventListener('click', () => {
+            botonActivar.disabled = true
+            botonActivar.textContent = 'Habilitando...'
+            setTimeout(() => {
+                botonAccion.disabled = false
+                botonAccion.style.background = '#2ecc71'
+                botonAccion.style.color = 'white'
+                botonAccion.textContent = 'Acción disponible!'
+                mensajeHabilitado.classList.remove('oculto')
+                botonActivar.textContent = 'Hecho'
+            }, 3000)
+        })
+
+        const botonAgregarDom = document.getElementById('boton-agregar-dom')
+        const contenedorDom = document.getElementById('contenedor-dom')
+
+        botonAgregarDom.addEventListener('click', () => {
+            botonAgregarDom.disabled = true
+            botonAgregarDom.textContent = 'Creando...'
+            setTimeout(() => {
+                const nuevoElemento = document.createElement('div')
+                nuevoElemento.id = 'elemento-dinamico'
+                nuevoElemento.setAttribute('data-test', 'elemento-dinamico')
+                nuevoElemento.className = 'mensaje-estado'
+                nuevoElemento.textContent = 'He sido inyectado en el DOM!'
+                contenedorDom.appendChild(nuevoElemento)
+
+                const elementoOculto = document.createElement('div')
+                elementoOculto.id = 'elemento-oculto'
+                elementoOculto.setAttribute('data-test', 'elemento-oculto')
+                elementoOculto.className = 'mensaje-estado oculto'
+                elementoOculto.textContent = 'Estoy en el DOM pero oculto!'
+                contenedorDom.appendChild(elementoOculto)
+
+                botonAgregarDom.textContent = 'Hecho'
+            }, 3000)
+        })
+
+        const botonCambiarTexto = document.getElementById('boton-cambiar-texto')
+        const textoEstado = document.getElementById('estado-proceso')
+
+        botonCambiarTexto.addEventListener('click', () => {
+            botonCambiarTexto.disabled = true
+            textoEstado.textContent = 'Procesando...'
+            textoEstado.style.color = 'blue'
+
+            setTimeout(() => {
+                textoEstado.textContent = 'Proceso completado'
+                textoEstado.style.color = 'green'
+                botonCambiarTexto.textContent = 'Reiniciar'
+                botonCambiarTexto.disabled = false
+            }, 3000)
+        })
+    </script>
+</body>
+</html>

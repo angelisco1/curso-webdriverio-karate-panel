@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soporte Shadow DOM</title>
+    <style>
+        body { font-family: sans-serif; margin: 0; padding: 20px; background-color: #f4f4f4; }
+        h1 { text-align: center; color: #333; }
+    </style>
+</head>
+<body>
+
+    <h1>Sistema de soporte (Shadow DOM)</h1>
+
+    <div style="text-align: center; margin-bottom: 20px;" id="controles-externos">
+        <p>Botones de prueba (externos al Shadow DOM):</p>
+        <button id="boton-preguntar-estado" data-test="boton-preguntar-estado" onclick="rellenarInput('¿Cómo va la comprobación?')">Preguntar comprobación</button>
+        <button id="boton-reclamar-factura" data-test="boton-reclamar-factura" onclick="rellenarInput('No he recibido en el email la última factura')">Pedir factura</button>
+        <button id="boton-responder-email" data-test="boton-responder-email" onclick="rellenarInput('Email')">Responder: email</button>
+        <button id="boton-responder-whatsapp" data-test="boton-responder-whatsapp" onclick="rellenarInput('Whatsapp')">Responder: whatsapp</button>
+    </div>
+
+    <aplicacion-soporte id="app" data-test="aplicacion-soporte"></aplicacion-soporte>
+
+    <script type="module" src="./components/MensajeChat.js"></script>
+    <script type="module" src="./components/InputMensaje.js"></script>
+    <script type="module" src="./components/ChatsSoporte.js"></script>
+    <script type="module" src="./components/ConversacionChat.js"></script>
+    <script type="module" src="./components/AplicacionSoporte.js"></script>
+
+    <script>
+        function rellenarInput(texto) {
+            const app = document.querySelector('aplicacion-soporte');
+            const conversacion = app.shadowRoot.querySelector('conversacion-chat');
+            const componenteInputMensaje = conversacion.shadowRoot.querySelector('input-mensaje');
+            const campoInput = componenteInputMensaje.shadowRoot.querySelector('input');
+            const botonEnviar = componenteInputMensaje.shadowRoot.querySelector('button');
+            campoInput.value = texto;
+            campoInput.focus();
+            botonEnviar.click();
+        }
+    </script>
+</body>
+</html>

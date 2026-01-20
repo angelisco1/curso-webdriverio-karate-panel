@@ -1,12 +1,10 @@
-export const config: WebdriverIO.Config = {
+exports.config = {
     //
     // ====================
     // Runner Configuration
     // ====================
     // WebdriverIO supports running e2e tests as well as unit and component tests.
     runner: 'local',
-    tsConfigPath: './test/tsconfig.json',
-
     //
     // ==================
     // Specify Test Files
@@ -53,7 +51,7 @@ export const config: WebdriverIO.Config = {
     //
     capabilities: [{
         browserName: 'chrome',
-        browserVersion: 'latest'
+        browserVersion: 'stable'
     }],
 
     //

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda online - checkout</title>
+    <style>
+        body { font-family: sans-serif; color: #333; margin: 0; padding: 20px; background-color: #f4f4f4; }
+        .contenedor { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border: 1px solid #eee; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+
+        h1 { margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        h3 { margin-top: 30px; margin-bottom: 15px; }
+
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 14px; }
+        input[type="text"], input[type="email"] {
+            width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 14px;
+        }
+
+        .resumen-pedido { background: #f9f9f9; padding: 15px; border-radius: 4px; margin-bottom: 20px; }
+        .fila-total { display: flex; justify-content: space-between; font-weight: bold; font-size: 1.2em; margin-top: 10px; border-top: 1px solid #ddd; padding-top: 10px; }
+
+        .boton-pagar {
+            display: block; width: 100%; padding: 15px; background: #28a745; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; font-weight: bold;
+        }
+        .boton-pagar:hover { background: #218838; }
+
+        .backdrop {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;
+        }
+        .contenido-modal {
+            background: white; padding: 0; width: 400px; height: 500px; border-radius: 8px; box-shadow: 0 5px 25px rgba(0,0,0,0.2); position: relative; overflow: hidden;
+        }
+        .cerrar-modal {
+            position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; color: #999; z-index: 10;
+        }
+        .cerrar-modal:hover { color: #333; }
+
+        iframe {
+            width: 100%; height: 100%; border: none;
+        }
+
+        .mensaje-pago-completo {
+            display: none; padding: 20px; background: #d4edda; color: #155724; border: 1px solid #c3e6cb; border-radius: 4px; margin-top: 20px; text-align: center;
+        }
+        .mensaje-error {
+            display: none; padding: 20px; background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; border-radius: 4px; margin-top: 20px; text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <h1>Finalizar compra</h1>
+
+        <div class="resumen-pedido">
+            <div>Producto: Zapatillas running PRO</div>
+            <div class="fila-total">
+                <span>Total a pagar</span>
+                <span>99,00 €</span>
+            </div>
+        </div>
+
+        <form id="formulario-envio" onsubmit="event.preventDefault(); abrirModalPago();">
+            <h3>Datos de envío</h3>
+            <div class="form-group">
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Charly Falco">
+            </div>
+            <div class="form-group">
+                <label for="direccion">Dirección de envío</label>
+                <input type="text" id="direccion" name="direccion" placeholder="C/ La Piruleta 14">
+            </div>
+
+            <button type="submit" class="boton-pagar" id="boton-abrir-pago" disabled style="background-color: #cccccc; cursor: not-allowed;">Pagar con Pagalo 3000</button>
+        </form>
+
+        <div id="mensaje-pago-completo" class="mensaje-pago-completo">
+            <h2>Pago completado!</h2>
+            <p>Gracias por tu compra. Tu pedido llegará en 3 días.</p>
+        </div>
+
+        <div id="mensaje-error" class="mensaje-error">
+            <h2>Pago rechazado!</h2>
+            <p id="texto-error"></p>
+        </div>
+    </div>
+
+    <div class="backdrop" id="modal-pago">
+        <div class="contenido-modal">
+            <span class="cerrar-modal" onclick="cerrarModalPago()">&times;</span>
+            <iframe src="http://localhost:4002/pagalo3000-checkout.html" id="iframe-pago" name="pagalo3000"></iframe>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('modal-pago');
+        const mensajeExito = document.getElementById('mensaje-pago-completo');
+        const mensajeError = document.getElementById('mensaje-error');
+        const textoError = document.getElementById('texto-error');
+        const formularioEnvio = document.getElementById('formulario-envio');
+        const inputNombre = document.getElementById('nombre');
+        const inputDireccion = document.getElementById('direccion');
+        const botonPagar = document.getElementById('boton-abrir-pago');
+
+        function validarFormulario() {
+            if (inputNombre.value.trim() !== '' && inputDireccion.value.trim() !== '') {
+                botonPagar.disabled = false;
+                botonPagar.style.backgroundColor = '#28a745';
+                botonPagar.style.cursor = 'pointer';
+            } else {
+                botonPagar.disabled = true;
+                botonPagar.style.backgroundColor = '#cccccc';
+                botonPagar.style.cursor = 'not-allowed';
+            }
+        }
+
+        inputNombre.addEventListener('input', validarFormulario);
+        inputDireccion.addEventListener('input', validarFormulario);
+
+        function abrirModalPago() {
+            const nombre = inputNombre.value;
+            if(nombre) {
+                mensajeExito.style.display = 'none';
+                mensajeError.style.display = 'none';
+                modal.style.display = 'flex';
+            }
+        }
+
+        function cerrarModalPago() {
+            modal.style.display = 'none';
+        }
+
+        window.addEventListener('message', (event) => {
+            if (event.data.type === 'payment-success') {
+                cerrarModalPago();
+                formularioEnvio.style.display = 'none';
+                mensajeExito.style.display = 'block';
+                console.log('Pago confirmado con token:', event.data.token);
+            } else if (event.data.type === 'payment-error') {
+                cerrarModalPago();
+                formularioEnvio.style.display = 'none';
+                mensajeError.style.display = 'block';
+                textoError.textContent = event.data.message;
+                console.error('Error en el pago:', event.data.message);
+            }
+        });
+    </script>
+</body>
+</html>

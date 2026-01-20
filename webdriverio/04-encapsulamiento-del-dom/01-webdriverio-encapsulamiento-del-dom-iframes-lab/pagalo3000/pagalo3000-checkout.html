@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagalo 3000</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 20px; background: #f8f9fa; display: flex; flex-direction: column; height: 100vh; box-sizing: border-box; }
+
+        .cabecera { text-align: center; margin-bottom: 20px; }
+        .logo { font-weight: 900; font-size: 24px; color: #6772e5; letter-spacing: -1px; }
+        .cantidad { font-size: 32px; font-weight: bold; color: #333; margin: 10px 0; }
+        .insignia { background: #e0e0e0; padding: 4px 8px; border-radius: 4px; font-size: 12px; color: #555; text-transform: uppercase; }
+
+        .formulario-tarjeta { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border: 1px solid #e6ebf1; flex-grow: 1; }
+
+        .fila-campo { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 6px; color: #6b7c93; font-size: 13px; font-weight: 500; }
+
+        input {
+            width: 100%; padding: 10px 12px; border: 1px solid #e6ebf1; border-radius: 4px; background: white;
+            font-size: 16px; color: #32325d; transition: box-shadow 0.15s ease; box-sizing: border-box;
+        }
+        input:focus { outline: none; box-shadow: 0 1px 3px 0 #cfd7df; border-color: #6772e5; }
+        input.invalido { border-color: #e25950; }
+
+        .fila-dividida { display: flex; gap: 15px; }
+        .fila-dividida > div { flex: 1; }
+
+        button {
+            display: block; width: 100%; padding: 16px; background: #6772e5; color: white; border: none; border-radius: 4px;
+            font-size: 16px; font-weight: 600; cursor: pointer; margin-top: 20px; box-shadow: 0 4px 6px rgba(50,50,93,0.11), 0 1px 3px rgba(0,0,0,0.08);
+            transition: all 0.15s ease;
+        }
+        button:hover { background: #5469d4; transform: translateY(-1px); }
+        button:active { background: #4c5ec0; transform: translateY(1px); }
+        button:disabled { background: #aab7c4; cursor: not-allowed; transform: none; }
+
+        .spinner {
+            display: none; width: 20px; height: 20px; border: 2px solid #ffffff; border-top-color: transparent; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .texto-boton { display: block; }
+        button.cargando .texto-boton { display: none; }
+        button.cargando .spinner { display: block; }
+
+    </style>
+</head>
+<body>
+    <div class="cabecera">
+        <div class="logo">Pagalo 3000</div>
+        <div class="cantidad">99,00 €</div>
+        <span class="insignia">pago seguro</span>
+    </div>
+
+    <form class="formulario-tarjeta" id="formulario-pago" onsubmit="event.preventDefault(); procesarPago();">
+        <div class="fila-campo">
+            <label>Número de tarjeta</label>
+            <input type="text" id="numero-tarjeta" placeholder="8009 1552 3774 6262" maxlength="19">
+        </div>
+
+        <div class="fila-dividida">
+            <div class="fila-campo">
+                <label>Fecha exp.</label>
+                <input type="text" id="caducidad" placeholder="MM/YY" maxlength="5">
+            </div>
+            <div class="fila-campo">
+                <label>CVC</label>
+                <input type="text" id="cvc" placeholder="123" maxlength="3">
+            </div>
+        </div>
+
+        <button type="submit" id="boton-enviar" disabled>
+            <span class="texto-boton">Pagar 99,00 €</span>
+            <div class="spinner"></div>
+        </button>
+    </form>
+
+    <script>
+        const boton = document.getElementById('boton-enviar');
+        const inputTarjeta = document.getElementById('numero-tarjeta');
+        const inputCvc = document.getElementById('cvc');
+        const inputCaducidad = document.getElementById('caducidad');
+
+        function validarCampos() {
+            const tarjeta = inputTarjeta.value.replace(/\s/g, '');
+            const cvc = inputCvc.value;
+            const caducidad = inputCaducidad.value;
+
+            const tarjetaValida = tarjeta.length === 16;
+            const cvcValido = cvc.length === 3;
+            const caducidadValida = caducidad.length === 5;
+
+            if (tarjetaValida && cvcValido && caducidadValida) {
+                boton.disabled = false;
+            } else {
+                boton.disabled = true;
+            }
+        }
+
+        [inputTarjeta, inputCvc, inputCaducidad].forEach(input => {
+            input.addEventListener('input', validarCampos);
+        });
+
+        function procesarPago() {
+            const tarjeta = document.getElementById('numero-tarjeta').value;
+            const cvc = document.getElementById('cvc').value;
+            const caducidad = document.getElementById('caducidad').value;
+
+            boton.classList.add('cargando');
+            boton.disabled = true;
+
+            setTimeout(() => {
+                const tarjetaLimpia = tarjeta.replace(/\s/g, '');
+                const tarjetaCeros = /^0+$/.test(tarjetaLimpia);
+                const cvcNueves = /^9+$/.test(cvc);
+
+                let caducada = false;
+                if (caducidad && caducidad.includes('/')) {
+                    const [mm, yy] = caducidad.split('/').map(n => parseInt(n, 10));
+                    const currentDate = new Date();
+                    const currentMonth = currentDate.getMonth() + 1;
+                    const currentYear = currentDate.getFullYear() % 100;
+                    if (yy < currentYear || (yy === currentYear && mm < currentMonth)) {
+                        caducada = true;
+                    }
+                }
+
+                if (tarjetaCeros || cvcNueves || caducada) {
+                    window.parent.postMessage({
+                        type: 'payment-error',
+                        message: 'El pago ha sido rechazado por su entidad bancaria.'
+                    }, '*');
+                } else {
+                    window.parent.postMessage({
+                        type: 'payment-success',
+                        token: 'tok_' + Math.random().toString(36).substr(2, 9)
+                    }, '*');
+                }
+
+                boton.classList.remove('cargando');
+                boton.disabled = false;
+            }, 2000);
+        }
+
+        document.getElementById('numero-tarjeta').addEventListener('input', function (e) {
+            e.target.value = e.target.value.replace(/[^\d]/g, '').replace(/(.{4})/g, '$1 ').trim();
+        });
+    </script>
+</body>
+</html>
