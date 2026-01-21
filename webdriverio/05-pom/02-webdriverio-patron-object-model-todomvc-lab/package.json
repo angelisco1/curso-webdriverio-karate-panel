@@ -20,6 +20,7 @@
     "@wdio/mocha-framework": "^9.23.0",
     "@wdio/spec-reporter": "^9.20.0",
     "@wdio/types": "^9.23.2",
+    "@wdio/globals": "^9.23.0",
     "expect-webdriverio": "5.5.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
