@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de transacciones</title>
+    <style>
+        body { font-family: sans-serif; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #eee; padding: 12px; text-align: left; }
+        th { background-color: #f0f0f0; cursor: pointer; user-select: none; }
+        th:hover { background-color: #e0e0e0; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+
+        .positivo { color: green; font-weight: bold; }
+        .negativo { color: red; font-weight: bold; }
+
+        h1 { margin-bottom: 20px; }
+
+        .fila-total td {
+            font-weight: bold;
+            background-color: #f0f0f0;
+            border-top: 2px solid #ddd;
+        }
+
+        .formulario-nueva-transaccion {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: 1px solid #eee;
+        }
+
+        .grid-formulario {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .btn-agregar {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-agregar:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Historial de transacciones</h1>
+
+        <div class="formulario-nueva-transaccion">
+            <h3>Nueva transacción</h3>
+            <form id="formularioTransaccion">
+                <div class="grid-formulario">
+                    <div class="form-group">
+                        <label for="nombre">Nombre acción</label>
+                        <input type="text" id="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ticker">Ticker</label>
+                        <input type="text" id="ticker" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cantidad">Cantidad</label>
+                        <input type="number" id="cantidad" step="1" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="precioCompra">Precio compra</label>
+                        <input type="number" id="precioCompra" step="0.01" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="precioVenta">Precio venta</label>
+                        <input type="number" id="precioVenta" step="0.01" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fechaCompra">Fecha compra</label>
+                        <input type="date" id="fechaCompra" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fechaVenta">Fecha venta</label>
+                        <input type="date" id="fechaVenta" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn-agregar">Añadir transacción</button>
+            </form>
+        </div>
+
+        <table id="tablaTransacciones">
+            <thead>
+                <tr>
+                    <th data-sort="nombre">Nombre acción</th>
+                    <th data-sort="ticker">Ticker</th>
+                    <th data-sort="cantidad">Cantidad</th>
+                    <th data-sort="precioCompra">Precio compra</th>
+                    <th data-sort="precioVenta">Precio venta</th>
+                    <th data-sort="gananciaPerdida">Ganancias/pérdidas</th>
+                    <th data-sort="fechaCompra">Fecha compra</th>
+                    <th data-sort="fechaVenta">Fecha venta</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpoTabla">
+            </tbody>
+            <tfoot>
+                <tr class="fila-total">
+                    <td colspan="5" style="text-align: right;">Total ganancias/pérdidas:</td>
+                    <td id="totalGananciaPerdida"></td>
+                    <td colspan="2"></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <script>
+        const transacciones = [
+            { nombre: 'Apple Inc.', ticker: 'AAPL', cantidad: 10, precioCompra: 150.00, precioVenta: 175.50, fechaCompra: '2023-01-15', fechaVenta: '2023-06-20' },
+            { nombre: 'Tesla Inc.', ticker: 'TSLA', cantidad: 5, precioCompra: 200.00, precioVenta: 180.00, fechaCompra: '2023-02-10', fechaVenta: '2023-05-05' },
+            { nombre: 'Microsoft Corp.', ticker: 'MSFT', cantidad: 15, precioCompra: 250.00, precioVenta: 310.00, fechaCompra: '2023-03-01', fechaVenta: '2023-08-15' },
+            { nombre: 'Amazon.com Inc.', ticker: 'AMZN', cantidad: 20, precioCompra: 100.00, precioVenta: 130.00, fechaCompra: '2023-01-20', fechaVenta: '2023-07-10' },
+            { nombre: 'NVIDIA Corp.', ticker: 'NVDA', cantidad: 8, precioCompra: 280.00, precioVenta: 450.00, fechaCompra: '2023-04-05', fechaVenta: '2023-09-01' }
+        ];
+
+        transacciones.forEach(t => {
+            t.gananciaPerdida = (t.precioVenta - t.precioCompra) * t.cantidad;
+        });
+
+        let ordenActual = { columna: null, direccion: 'asc' };
+
+        const formateadorMoneda = new Intl.NumberFormat('es-ES', {
+            style: 'currency',
+            currency: 'EUR'
+        });
+
+        const formateadorFecha = new Intl.DateTimeFormat('es-ES', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+        });
+
+        function renderizarTabla(datos) {
+            const cuerpo = document.getElementById('cuerpoTabla');
+            cuerpo.innerHTML = '';
+
+            datos.forEach(t => {
+                const fila = document.createElement('tr');
+                const claseGananciaPerdida = t.gananciaPerdida >= 0 ? 'positivo' : 'negativo';
+
+                const fechaCompra = new Date(t.fechaCompra);
+                const fechaVenta = new Date(t.fechaVenta);
+
+                fila.innerHTML = `
+                    <td>${t.nombre}</td>
+                    <td>${t.ticker}</td>
+                    <td>${t.cantidad}</td>
+                    <td>${formateadorMoneda.format(t.precioCompra)}</td>
+                    <td>${formateadorMoneda.format(t.precioVenta)}</td>
+                    <td class="${claseGananciaPerdida}">${formateadorMoneda.format(t.gananciaPerdida)}</td>
+                    <td>${formateadorFecha.format(fechaCompra)}</td>
+                    <td>${formateadorFecha.format(fechaVenta)}</td>
+                `;
+                cuerpo.appendChild(fila);
+            });
+
+            const totalGananciaPerdida = datos.reduce((suma, t) => suma + t.gananciaPerdida, 0);
+            const elementoTotalGananciaPerdida = document.getElementById('totalGananciaPerdida');
+            elementoTotalGananciaPerdida.textContent = formateadorMoneda.format(totalGananciaPerdida);
+
+            elementoTotalGananciaPerdida.className = totalGananciaPerdida >= 0 ? 'positivo' : 'negativo';
+        }
+
+        function ordenarDatos(columna) {
+            const direccion = ordenActual.columna === columna && ordenActual.direccion === 'asc' ? 'desc' : 'asc';
+            ordenActual = { columna, direccion };
+
+            const datosOrdenados = [...transacciones].sort((a, b) => {
+                let valorA = a[columna];
+                let valorB = b[columna];
+
+                if (typeof valorA === 'string') valorA = valorA.toLowerCase();
+                if (typeof valorB === 'string') valorB = valorB.toLowerCase();
+
+                if (valorA < valorB) return direccion === 'asc' ? -1 : 1;
+                if (valorA > valorB) return direccion === 'asc' ? 1 : -1;
+                return 0;
+            });
+            renderizarTabla(datosOrdenados);
+        }
+
+        document.querySelectorAll('th[data-sort]').forEach(th => {
+            th.addEventListener('click', () => {
+                ordenarDatos(th.dataset.sort);
+            });
+        });
+
+        document.getElementById('formularioTransaccion').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nuevaTransaccion = {
+                nombre: document.getElementById('nombre').value,
+                ticker: document.getElementById('ticker').value,
+                cantidad: parseInt(document.getElementById('cantidad').value),
+                precioCompra: parseFloat(document.getElementById('precioCompra').value),
+                precioVenta: parseFloat(document.getElementById('precioVenta').value),
+                fechaCompra: document.getElementById('fechaCompra').value,
+                fechaVenta: document.getElementById('fechaVenta').value
+            };
+
+            nuevaTransaccion.gananciaPerdida = (nuevaTransaccion.precioVenta - nuevaTransaccion.precioCompra) * nuevaTransaccion.cantidad;
+
+            transacciones.push(nuevaTransaccion);
+
+            if (ordenActual.columna) {
+                ordenarDatos(ordenActual.columna);
+                ordenActual.direccion = ordenActual.direccion === 'asc' ? 'desc' : 'asc';
+                ordenarDatos(ordenActual.columna);
+            } else {
+                renderizarTabla(transacciones);
+            }
+
+            this.reset();
+        });
+
+        renderizarTabla(transacciones);
+    </script>
+</body>
+</html>

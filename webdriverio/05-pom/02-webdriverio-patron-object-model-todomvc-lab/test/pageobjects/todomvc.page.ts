@@ -39,8 +39,6 @@ class TodoMvcPage extends Page {
   async marcarTodasLasTareas() {
     await this.toggleAllCheckbox.click()
   }
-
-
 }
 
 export default new TodoMvcPage()

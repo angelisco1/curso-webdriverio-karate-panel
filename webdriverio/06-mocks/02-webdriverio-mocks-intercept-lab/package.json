@@ -1,0 +1,27 @@
+{
+  "name": "03-webdriverio-mocks-intercept-lab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "wdio": "wdio run ./wdio.conf.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@wdio/cli": "^9.23.0",
+    "@wdio/local-runner": "^9.23.0",
+    "@wdio/mocha-framework": "^9.23.0",
+    "@wdio/spec-reporter": "^9.20.0",
+    "@wdio/types": "^9.23.2",
+    "expect-webdriverio": "5.5.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}

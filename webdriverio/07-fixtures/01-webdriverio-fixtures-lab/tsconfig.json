@@ -6,6 +6,7 @@
         "module": "commonjs",
         "skipLibCheck": true,
         "strict": true,
+        "resolveJsonModule": true,
         "sourceMap": true
     }
 }

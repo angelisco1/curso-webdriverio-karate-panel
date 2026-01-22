@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interceptar llamadas</title>
+</head>
+<body>
+  <p>Tiempo para hoy: <span id="tiempo"></span></p>
+
+  <script>
+    function getEmoji() {
+      return fetch('http://localhost:4002/get-tiempo')
+        .then(resp => resp.json())
+        .then(({ tiempo }) => {
+          switch(tiempo) {
+            case 'soleado': return '1';
+            case 'parcialmente-nublado': return '2';
+            case 'nublado': return '3';
+            case 'lluvioso': return '4';
+            case 'tormenta': return '5';
+            case 'nevado': return '6';
+            // case 'soleado': return '☀️';
+            // case 'parcialmente-nublado': return '🌤';
+            // case 'nublado': return '☁️';
+            // case 'lluvioso': return '🌧';
+            // case 'tormenta': return '🌩';
+            // case 'nevado': return '🌨';
+          }
+        });
+    }
+
+    getEmoji().then(val => {
+      document.getElementById('tiempo').innerText = val;
+    })
+  </script>
+</body>
+</html>

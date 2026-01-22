@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spy y Stub</title>
+</head>
+<body>
+  <div>
+    <button type="button" id="btn-ubicacion">¿Dónde estoy?</button>
+    <p>Ubicación: <span id="ciudad"></span></p>
+  </div>
+
+  <script>
+    document.getElementById('btn-ubicacion').addEventListener('click', () => {
+      navigator.geolocation.getCurrentPosition(position => {
+        const { coords } = position;
+        const { longitude, latitude } = coords;
+
+        console.log('Longitud:', longitude);
+        console.log('Latitud:', latitude);
+
+        fetch(`http://localhost:4003/get-ciudad?lat=${latitude}&lon=${longitude}`)
+          .then(resp => resp.json())
+          .then(({ciudad}) => {
+            console.log('Ciudad:', ciudad);
+
+            document.getElementById('ciudad').innerText = ciudad;
+          })
+      })
+    })
+  </script>
+</body>
+</html>
