@@ -1,62 +1,78 @@
 describe('Mocks - Spy', () => {
   let espiaPosts: WebdriverIO.Mock, espiaUsers: WebdriverIO.Mock, espiaCrearPost: WebdriverIO.Mock;
 
-  before(async () => {
+  beforeEach(async () => {
     espiaPosts = await browser.mock('https://jsonplaceholder.typicode.com/posts', { method: 'get' })
     espiaUsers = await browser.mock('https://**/users', { method: 'get' })
+    espiaCrearPost = await browser.mock('**/posts', { method: 'post' })
 
-    // espiaCrearPost = await browser.mock(new URLPattern({
-    //   pathname: '/posts',
-    //   hostname: '**',
-    //   protocol: 'https'
-    // }), { method: 'post' })
-    espiaCrearPost = await browser.mock('https://jsonplaceholder.typicode.com/posts', { method: 'post' })
-  })
-
-  beforeEach(async () => {
     await browser.url('http://localhost:4001/')
   })
 
-  it('debería de pedir una vez los posts al entrar en al web', async () => {
-    await expect(espiaPosts).toBeRequestedTimes(2)
+  afterEach(async () => {
+    await espiaPosts.restore()
+    await espiaUsers.restore()
+    await espiaCrearPost.restore()
   })
 
-  // it('debería de pedir una vez los posts al entrar en al web', async () => {
-  //   await expect(espiaPosts).toBeRequestedTimes(1)
-  // })
+  it('debería de pedir una vez los posts al entrar en al web', async () => {
+    await expect(espiaPosts).toBeRequestedTimes(1)
+  })
 
   it('debería de pedir una vez los users al pulsar el botón de cargar usuarios', async () => {
     await $('#btn-cargar-usuarios').click()
-    await expect(espiaUsers).toBeRequestedTimes(3)
+    await expect(espiaUsers).toBeRequestedTimes(1)
   })
 
-  it('debería de llamar a los posts con el id del usuario 6 al cargar los posts de Leopoldo', async () => {
+  it('debería de llamar a los posts con el id del usuario 6 al cargar los posts de Leopoldo (waitForResponse)', async () => {
+    await espiaPosts.waitForResponse()
+    await espiaPosts.clear()
     await $('#btn-cargar-usuarios').click()
+
+    await espiaUsers.waitForResponse()
+
+    await $('[data-user-id="6"]').click()
+    await espiaPosts.waitForResponse()
+
+    expect(espiaPosts.calls[0].request.url).toContain('userId=6')
+  })
+
+  it('debería de llamar a los posts con el id del usuario 6 al cargar los posts de Leopoldo (waitUntil)', async () => {
+    await espiaPosts.waitForResponse()
+    await $('#btn-cargar-usuarios').click()
+
+    await espiaUsers.waitForResponse()
 
     await $('[data-user-id="6"]').click()
 
-    // const a: ExpectWebdriverIO.RequestedWith;
+    await browser.waitUntil(
+      async () => espiaPosts.calls.length >= 2,
+      { timeout: 6000, timeoutMsg: 'No se recibieron 2 llamadas a posts' }
+    )
 
-    // const params: ExpectWebdriverIO.RequestedWith = {
-    //   query: {
-    //     userId: 6
-    //   }
-    // }
-    // await expect(espiaPosts).toBeRequestedWith(params)
+    expect(espiaPosts.calls[1].request.url).toContain('userId=6')
   })
 
   it('debería de llamar a crear el nuevo posts con los datos correctos', async () => {
+    // const nuevoPost = {
+    //   "title": "asdaksd",
+    //   "body": "adasjkjdlkas",
+    //   "userId": 2,
+    // }
     const nuevoPost = {
-      "title": "asdaksd",
-      "body": "adasjkjdlkas",
-      "userId": 2,
+      title: 'Aumenta la venta de pitos y flautas',
+      body: 'La demanda de instrumentos musicales de viento ha experimentado un crecimiento sin precedentes en el último trimestre.',
+      userId: 1
     }
 
     await $('#btn-crear-post').click()
+    await espiaCrearPost.waitForResponse()
 
-    await expect(espiaCrearPost).toBeRequestedWith({
-      body: nuevoPost
-    })
+    const request = espiaCrearPost.calls[0].request
+    const body: string = (request as any)['goog:postData']
+    const postData = JSON.parse(body);
+
+    expect(postData).toEqual(nuevoPost);
   })
 
 })

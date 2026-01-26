@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"pool-2-thread-1","id":1},{"content":"pool-2-thread-2","id":2},{"content":"pool-2-thread-3","id":3},{"content":"pool-2-thread-4","id":4},{"content":"pool-2-thread-5","id":5}];
+var items = [{"id":1,"group":1,"content":"examples\/karate_01_introduccion_lab\/karate_01_introduccion[1:11]","start":1769452364971,"end":1769452365112,"title":"examples\/karate_01_introduccion_lab\/karate_01_introduccion[1:11] 19:32:44.971-19:32:45.112 Uso de variables y aserciones"},{"id":2,"group":2,"content":"examples\/karate_01_introduccion_lab\/karate_01_introduccion[2:20]","start":1769452364972,"end":1769452365078,"title":"examples\/karate_01_introduccion_lab\/karate_01_introduccion[2:20] 19:32:44.972-19:32:45.078 La función suma debería poder sumar dos números positivos"},{"id":3,"group":3,"content":"examples\/karate_01_introduccion_lab\/karate_01_introduccion[3:24]","start":1769452364972,"end":1769452365078,"title":"examples\/karate_01_introduccion_lab\/karate_01_introduccion[3:24] 19:32:44.972-19:32:45.078 La función suma debería poder sumar dos números negativos"},{"id":4,"group":4,"content":"examples\/karate_01_introduccion_lab\/karate_01_introduccion[4:28]","start":1769452364972,"end":1769452365079,"title":"examples\/karate_01_introduccion_lab\/karate_01_introduccion[4:28] 19:32:44.972-19:32:45.079 La función suma debería poder sumar un número con el 0"},{"id":5,"group":5,"content":"examples\/karate_02_peticiones_http_lab\/karate_01_peticiones_http_get[1:8]","start":1769452364971,"end":1769452365255,"title":"examples\/karate_02_peticiones_http_lab\/karate_01_peticiones_http_get[1:8] 19:32:44.971-19:32:45.255 Hola mundo desde Karate"},{"id":6,"group":3,"content":"examples\/karate_02_peticiones_http_lab\/karate_01_peticiones_http_get[2:16]","start":1769452365085,"end":1769452365255,"title":"examples\/karate_02_peticiones_http_lab\/karate_01_peticiones_http_get[2:16] 19:32:45.085-19:32:45.255 Saludar con un nombre específico (con path separado)"},{"id":7,"group":2,"content":"examples\/karate_02_peticiones_http_lab\/karate_01_peticiones_http_get[3:25]","start":1769452365085,"end":1769452365255,"title":"examples\/karate_02_peticiones_http_lab\/karate_01_peticiones_http_get[3:25] 19:32:45.085-19:32:45.255 Saludar con un nombre específico"},{"id":8,"group":4,"content":"examples\/karate_02_peticiones_http_lab\/karate_01_peticiones_http_get[4:34]","start":1769452365085,"end":1769452365690,"title":"examples\/karate_02_peticiones_http_lab\/karate_01_peticiones_http_get[4:34] 19:32:45.085-19:32:45.690 Al obtener un post específico, obtenemos un código 200 y el post es el que esperamos"},{"id":9,"group":1,"content":"examples\/karate_02_peticiones_http_lab\/karate_01_peticiones_http_get[5:42]","start":1769452365122,"end":1769452365690,"title":"examples\/karate_02_peticiones_http_lab\/karate_01_peticiones_http_get[5:42] 19:32:45.122-19:32:45.690 Al obtener un post específico, obtenemos un código 200 y el post es el que esperamos"},{"id":10,"group":3,"content":"examples\/karate_02_peticiones_http_lab\/karate_01_peticiones_http_get[6:50]","start":1769452365260,"end":1769452365370,"title":"examples\/karate_02_peticiones_http_lab\/karate_01_peticiones_http_get[6:50] 19:32:45.260-19:32:45.370 Obtenemos 10 posts al buscar los posts del usuario 3"},{"id":11,"group":2,"content":"examples\/karate_02_peticiones_http_lab\/karate_02_peticiones_http_post[1:15]","start":1769452365260,"end":1769452365688,"title":"examples\/karate_02_peticiones_http_lab\/karate_02_peticiones_http_post[1:15] 19:32:45.260-19:32:45.688 Al crear un nuevo post, obentemos un código 201 y el id del post es mayor a 100"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
