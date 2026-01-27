@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="examples.ExamplesTest" time="1.792" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="examples.ExamplesTest" time="1.444" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -13,7 +13,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="ES"/>
     <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk@17/17.0.11/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/angelisco1/Pronoide/mis-cursos/curso-webdriverio-karate-panel/karate/karate-lab/target/surefire/surefirebooter-20260126193243876_3.jar /Users/angelisco1/Pronoide/mis-cursos/curso-webdriverio-karate-panel/karate/karate-lab/target/surefire 2026-01-26T19-32-43_838-jvmRun1 surefire-20260126193243876_1tmp surefire_0-20260126193243876_2tmp"/>
+    <property name="sun.java.command" value="/Users/angelisco1/Pronoide/mis-cursos/curso-webdriverio-karate-panel/karate/karate-lab/target/surefire/surefirebooter-20260127192801646_3.jar /Users/angelisco1/Pronoide/mis-cursos/curso-webdriverio-karate-panel/karate/karate-lab/target/surefire 2026-01-27T19-28-01_595-jvmRun1 surefire-20260127192801646_1tmp surefire_0-20260127192801646_2tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/angelisco1/Pronoide/mis-cursos/curso-webdriverio-karate-panel/karate/karate-lab/target/test-classes:/Users/angelisco1/Pronoide/mis-cursos/curso-webdriverio-karate-panel/karate/karate-lab/target/classes:/Users/angelisco1/.m2/repository/com/intuit/karate/karate-junit5/1.4.1/karate-junit5-1.4.1.jar:/Users/angelisco1/.m2/repository/com/intuit/karate/karate-core/1.4.1/karate-core-1.4.1.jar:/Users/angelisco1/.m2/repository/org/graalvm/js/js-scriptengine/22.3.3/js-scriptengine-22.3.3.jar:/Users/angelisco1/.m2/repository/org/graalvm/sdk/graal-sdk/22.3.3/graal-sdk-22.3.3.jar:/Users/angelisco1/.m2/repository/org/graalvm/js/js/22.3.3/js-22.3.3.jar:/Users/angelisco1/.m2/repository/org/graalvm/regex/regex/22.3.3/regex-22.3.3.jar:/Users/angelisco1/.m2/repository/org/graalvm/truffle/truffle-api/22.3.3/truffle-api-22.3.3.jar:/Users/angelisco1/.m2/repository/com/ibm/icu/icu4j/71.1/icu4j-71.1.jar:/Users/angelisco1/.m2/repository/org/thymeleaf/thymeleaf/3.1.2.RELEASE/thymeleaf-3.1.2.RELEASE.jar:/Users/angelisco1/.m2/repository/ognl/ognl/3.3.4/ognl-3.3.4.jar:/Users/angelisco1/.m2/repository/org/javassist/javassist/3.29.0-GA/javassist-3.29.0-GA.jar:/Users/angelisco1/.m2/repository/org/attoparser/attoparser/2.0.7.RELEASE/attoparser-2.0.7.RELEASE.jar:/Users/angelisco1/.m2/repository/org/unbescape/unbescape/1.1.6.RELEASE/unbescape-1.1.6.RELEASE.jar:/Users/angelisco1/.m2/repository/org/slf4j/slf4j-api/2.0.7/slf4j-api-2.0.7.jar:/Users/angelisco1/.m2/repository/com/linecorp/armeria/armeria/1.25.2/armeria-1.25.2.jar:/Users/angelisco1/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.2/jackson-core-2.15.2.jar:/Users/angelisco1/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.15.2/jackson-annotations-2.15.2.jar:/Users/angelisco1/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.15.2/jackson-databind-2.15.2.jar:/Users/angelisco1/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.15.2/jackson-datatype-jdk8-2.15.2.jar:/Users/angelisco1/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.15.2/jackson-datatype-jsr310-2.15.2.jar:/Users/angelisco1/.m2/repository/io/micrometer/micrometer-core/1.11.3/micrometer-core-1.11.3.jar:/Users/angelisco1/.m2/repository/io/micrometer/micrometer-commons/1.11.3/micrometer-commons-1.11.3.jar:/Users/angelisco1/.m2/repository/io/micrometer/micrometer-observation/1.11.3/micrometer-observation-1.11.3.jar:/Users/angelisco1/.m2/repository/org/hdrhistogram/HdrHistogram/2.1.12/HdrHistogram-2.1.12.jar:/Users/angelisco1/.m2/repository/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3.jar:/Users/angelisco1/.m2/repository/io/netty/netty-transport/4.1.96.Final/netty-transport-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-common/4.1.96.Final/netty-common-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-buffer/4.1.96.Final/netty-buffer-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-resolver/4.1.96.Final/netty-resolver-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-codec-haproxy/4.1.96.Final/netty-codec-haproxy-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-codec/4.1.96.Final/netty-codec-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-codec-http2/4.1.96.Final/netty-codec-http2-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-handler/4.1.96.Final/netty-handler-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-codec-http/4.1.96.Final/netty-codec-http-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-resolver-dns/4.1.96.Final/netty-resolver-dns-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-codec-dns/4.1.96.Final/netty-codec-dns-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar:/Users/angelisco1/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/Users/angelisco1/.m2/repository/io/netty/netty-handler-proxy/4.1.96.Final/netty-handler-proxy-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-codec-socks/4.1.96.Final/netty-codec-socks-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.96.Final/netty-transport-native-unix-common-4.1.96.Final-linux-x86_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-transport-native-epoll/4.1.96.Final/netty-transport-native-epoll-4.1.96.Final-linux-x86_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.96.Final/netty-transport-native-unix-common-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-transport-classes-epoll/4.1.96.Final/netty-transport-classes-epoll-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.96.Final/netty-transport-native-unix-common-4.1.96.Final-linux-aarch_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-transport-native-epoll/4.1.96.Final/netty-transport-native-epoll-4.1.96.Final-linux-aarch_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.96.Final/netty-transport-native-unix-common-4.1.96.Final-osx-x86_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-transport-native-kqueue/4.1.96.Final/netty-transport-native-kqueue-4.1.96.Final-osx-x86_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-transport-classes-kqueue/4.1.96.Final/netty-transport-classes-kqueue-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-resolver-dns-native-macos/4.1.96.Final/netty-resolver-dns-native-macos-4.1.96.Final-osx-x86_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-resolver-dns-classes-macos/4.1.96.Final/netty-resolver-dns-classes-macos-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.96.Final/netty-transport-native-unix-common-4.1.96.Final-osx-aarch_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-transport-native-kqueue/4.1.96.Final/netty-transport-native-kqueue-4.1.96.Final-osx-aarch_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-resolver-dns-native-macos/4.1.96.Final/netty-resolver-dns-native-macos-4.1.96.Final-osx-aarch_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.61.Final/netty-tcnative-boringssl-static-2.0.61.Final-linux-x86_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-tcnative-classes/2.0.61.Final/netty-tcnative-classes-2.0.61.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.61.Final/netty-tcnative-boringssl-static-2.0.61.Final-linux-aarch_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.61.Final/netty-tcnative-boringssl-static-2.0.61.Final-osx-x86_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.61.Final/netty-tcnative-boringssl-static-2.0.61.Final-osx-aarch_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.61.Final/netty-tcnative-boringssl-static-2.0.61.Final-windows-x86_64.jar:/Users/angelisco1/.m2/repository/com/aayushatharva/brotli4j/brotli4j/1.12.0/brotli4j-1.12.0.jar:/Users/angelisco1/.m2/repository/com/aayushatharva/brotli4j/service/1.12.0/service-1.12.0.jar:/Users/angelisco1/.m2/repository/com/aayushatharva/brotli4j/native-osx-aarch64/1.12.0/native-osx-aarch64-1.12.0.jar:/Users/angelisco1/.m2/repository/org/apache/httpcomponents/httpclient/4.5.14/httpclient-4.5.14.jar:/Users/angelisco1/.m2/repository/org/apache/httpcomponents/httpcore/4.4.16/httpcore-4.4.16.jar:/Users/angelisco1/.m2/repository/commons-codec/commons-codec/1.16.0/commons-codec-1.16.0.jar:/Users/angelisco1/.m2/repository/ch/qos/logback/logback-classic/1.4.11/logback-classic-1.4.11.jar:/Users/angelisco1/.m2/repository/ch/qos/logback/logback-core/1.4.11/logback-core-1.4.11.jar:/Users/angelisco1/.m2/repository/org/slf4j/jcl-over-slf4j/2.0.9/jcl-over-slf4j-2.0.9.jar:/Users/angelisco1/.m2/repository/org/antlr/antlr4-runtime/4.11.1/antlr4-runtime-4.11.1.jar:/Users/angelisco1/.m2/repository/com/jayway/jsonpath/json-path/2.8.0/json-path-2.8.0.jar:/Users/angelisco1/.m2/repository/net/minidev/json-smart/2.4.10/json-smart-2.4.10.jar:/Users/angelisco1/.m2/repository/net/minidev/accessors-smart/2.4.9/accessors-smart-2.4.9.jar:/Users/angelisco1/.m2/repository/org/ow2/asm/asm/9.3/asm-9.3.jar:/Users/angelisco1/.m2/repository/org/yaml/snakeyaml/2.0/snakeyaml-2.0.jar:/Users/angelisco1/.m2/repository/de/siegmar/fastcsv/2.2.1/fastcsv-2.2.1.jar:/Users/angelisco1/.m2/repository/info/picocli/picocli/4.7.1/picocli-4.7.1.jar:/Users/angelisco1/.m2/repository/io/github/classgraph/classgraph/4.8.160/classgraph-4.8.160.jar:/Users/angelisco1/.m2/repository/io/github/t12y/resemble/1.0.2/resemble-1.0.2.jar:/Users/angelisco1/.m2/repository/io/github/t12y/ssim/1.0.0/ssim-1.0.0.jar:/Users/angelisco1/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.3/junit-jupiter-api-5.9.3.jar:/Users/angelisco1/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/angelisco1/.m2/repository/org/junit/platform/junit-platform-commons/1.9.3/junit-platform-commons-1.9.3.jar:/Users/angelisco1/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/angelisco1/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.3/junit-jupiter-engine-5.9.3.jar:/Users/angelisco1/.m2/repository/org/junit/platform/junit-platform-engine/1.9.3/junit-platform-engine-1.9.3.jar:"/>
@@ -29,7 +29,8 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="/Users/angelisco1/Pronoide/mis-cursos/curso-webdriverio-karate-panel/karate/karate-lab/target/surefire/surefirebooter-20260126193243876_3.jar"/>
+    <property name="karate.options" value="--tags @val03"/>
+    <property name="surefire.real.class.path" value="/Users/angelisco1/Pronoide/mis-cursos/curso-webdriverio-karate-panel/karate/karate-lab/target/surefire/surefirebooter-20260127192801646_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="17.0.11+0"/>
@@ -56,329 +57,23 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testParallel" classname="examples.ExamplesTest" time="1.786">
-    <system-out><![CDATA[19:32:44.575 [main] DEBUG com.intuit.karate.Suite - [config] classpath:karate-config.js
-19:32:44.579 [main] DEBUG com.intuit.karate.Suite - waiting for 11 features to complete
-19:32:45.040 [pool-2-thread-4] INFO  com.intuit.karate - karate.env system property was: null 
-19:32:45.040 [pool-2-thread-1] INFO  com.intuit.karate - karate.env system property was: null 
-19:32:45.040 [pool-2-thread-5] INFO  com.intuit.karate - karate.env system property was: null 
-19:32:45.040 [pool-2-thread-2] INFO  com.intuit.karate - karate.env system property was: null 
-19:32:45.040 [pool-2-thread-3] INFO  com.intuit.karate - karate.env system property was: null 
-19:32:45.085 [pool-2-thread-2] INFO  com.intuit.karate - karate.env system property was: null 
-19:32:45.085 [pool-2-thread-3] INFO  com.intuit.karate - karate.env system property was: null 
-19:32:45.085 [pool-2-thread-4] INFO  com.intuit.karate - karate.env system property was: null 
-19:32:45.125 [pool-2-thread-1] INFO  com.intuit.karate - karate.env system property was: null 
-19:32:45.231 [pool-2-thread-3] DEBUG com.intuit.karate - request:
-1 > GET http://localhost:4001/api/saludar/Charly
-1 > Host: localhost:4001
-1 > Connection: Keep-Alive
-1 > User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.11)
-1 > Accept-Encoding: gzip,deflate
-
-
-19:32:45.231 [pool-2-thread-2] DEBUG com.intuit.karate - request:
-1 > GET http://localhost:4001/api/saludar/Kozinski
-1 > Host: localhost:4001
-1 > Connection: Keep-Alive
-1 > User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.11)
-1 > Accept-Encoding: gzip,deflate
-
-
-19:32:45.231 [pool-2-thread-5] DEBUG com.intuit.karate - request:
-1 > GET http://localhost:4001/api/hola
-1 > Host: localhost:4001
-1 > Connection: Keep-Alive
-1 > User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.11)
-1 > Accept-Encoding: gzip,deflate
-
-
-19:32:45.231 [pool-2-thread-4] DEBUG com.intuit.karate - request:
-1 > GET https://jsonplaceholder.typicode.com/posts/80
-1 > Host: jsonplaceholder.typicode.com
-1 > Connection: Keep-Alive
-1 > User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.11)
-1 > Accept-Encoding: gzip,deflate
-
-
-19:32:45.231 [pool-2-thread-1] DEBUG com.intuit.karate - request:
-1 > GET https://jsonplaceholder.typicode.com/posts/8
-1 > Host: jsonplaceholder.typicode.com
-1 > Connection: Keep-Alive
-1 > User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.11)
-1 > Accept-Encoding: gzip,deflate
-
-
-19:32:45.252 [pool-2-thread-5] DEBUG com.intuit.karate - response time in milliseconds: 20
-1 < 200
-1 < X-Powered-By: Express
-1 < Content-Type: application/json; charset=utf-8
-1 < Content-Length: 40
-1 < ETag: W/"28-SLq0l4IYCZ31GYqJPl68eSL9rH4"
-1 < Date: Mon, 26 Jan 2026 18:32:45 GMT
-1 < Connection: keep-alive
-1 < Keep-Alive: timeout=5
-{"mensaje":"Hola Mundo desde Karate!!!"}
-
-19:32:45.252 [pool-2-thread-2] DEBUG com.intuit.karate - response time in milliseconds: 20
-1 < 200
-1 < X-Powered-By: Express
-1 < Content-Type: application/json; charset=utf-8
-1 < Content-Length: 48
-1 < ETag: W/"30-SacJCyQUjreqVQGa06WVnOsK39g"
-1 < Date: Mon, 26 Jan 2026 18:32:45 GMT
-1 < Connection: keep-alive
-1 < Keep-Alive: timeout=5
-{"mensaje":"Hola Kozinski!","nombre":"Kozinski"}
-
-19:32:45.252 [pool-2-thread-3] DEBUG com.intuit.karate - response time in milliseconds: 20
-1 < 200
-1 < X-Powered-By: Express
-1 < Content-Type: application/json; charset=utf-8
-1 < Content-Length: 44
-1 < ETag: W/"2c-w97vHyIMCF45QzHZQJqcjJNt7LA"
-1 < Date: Mon, 26 Jan 2026 18:32:45 GMT
-1 < Connection: keep-alive
-1 < Keep-Alive: timeout=5
-{"mensaje":"Hola Charly!","nombre":"Charly"}
-
-19:32:45.262 [pool-2-thread-3] INFO  com.intuit.karate - karate.env system property was: null 
-19:32:45.262 [pool-2-thread-2] INFO  com.intuit.karate - karate.env system property was: null 
-19:32:45.267 [pool-2-thread-3] DEBUG com.intuit.karate - request:
-1 > GET https://jsonplaceholder.typicode.com/posts?userId=3
-1 > Host: jsonplaceholder.typicode.com
-1 > Connection: Keep-Alive
-1 > User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.11)
-1 > Accept-Encoding: gzip,deflate
-
-
-19:32:45.283 [pool-2-thread-2] DEBUG com.intuit.karate - request:
-1 > POST https://jsonplaceholder.typicode.com/posts
-1 > Content-Type: application/json; charset=UTF-8
-1 > Content-Length: 82
-1 > Host: jsonplaceholder.typicode.com
-1 > Connection: Keep-Alive
-1 > User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.11)
-1 > Accept-Encoding: gzip,deflate
-{"userId":7,"title":"Aumenta la venta de pitos y flautas","body":"Bla bla bla..."}
-
-19:32:45.364 [pool-2-thread-3] DEBUG com.intuit.karate - response time in milliseconds: 96
-1 < 200
-1 < Date: Mon, 26 Jan 2026 18:32:45 GMT
-1 < Content-Type: application/json; charset=utf-8
-1 < Transfer-Encoding: chunked
-1 < Connection: keep-alive
-1 < access-control-allow-credentials: true
-1 < Cache-Control: max-age=43200
-1 < etag: W/"a65-1/mRNOhrr+3bFpMuWj+OXmTpWLs"
-1 < expires: -1
-1 < nel: {"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}
-1 < pragma: no-cache
-1 < report-to: {"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=K2EJkmvsM4E4yV14erhGMUZOAU0otgQLMXtz83eGGVE%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1769191924"}],"max_age":3600}
-1 < reporting-endpoints: heroku-nel="https://nel.heroku.com/reports?s=K2EJkmvsM4E4yV14erhGMUZOAU0otgQLMXtz83eGGVE%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1769191924"
-1 < Server: cloudflare
-1 < vary: Origin, Accept-Encoding
-1 < via: 2.0 heroku-router
-1 < x-content-type-options: nosniff
-1 < x-powered-by: Express
-1 < x-ratelimit-limit: 1000
-1 < x-ratelimit-remaining: 998
-1 < x-ratelimit-reset: 1769191950
-1 < Age: 897
-1 < cf-cache-status: HIT
-1 < Server-Timing: cfCacheStatus;desc="HIT"
-1 < Server-Timing: cfEdge;dur=7,cfOrigin;dur=0
-1 < CF-RAY: 9c421843ce850270-MAD
-1 < alt-svc: h3=":443"; ma=86400
-[
-  {
-    "userId": 3,
-    "id": 21,
-    "title": "asperiores ea ipsam voluptatibus modi minima quia sint",
-    "body": "repellat aliquid praesentium dolorem quo\nsed totam minus non itaque\nnihil labore molestiae sunt dolor eveniet hic recusandae veniam\ntempora et tenetur expedita sunt"
-  },
-  {
-    "userId": 3,
-    "id": 22,
-    "title": "dolor sint quo a velit explicabo quia nam",
-    "body": "eos qui et ipsum ipsam suscipit aut\nsed omnis non odio\nexpedita earum mollitia molestiae aut atque rem suscipit\nnam impedit esse"
-  },
-  {
-    "userId": 3,
-    "id": 23,
-    "title": "maxime id vitae nihil numquam",
-    "body": "veritatis unde neque eligendi\nquae quod architecto quo neque vitae\nest illo sit tempora doloremque fugit quod\net et vel beatae sequi ullam sed tenetur perspiciatis"
-  },
-  {
-    "userId": 3,
-    "id": 24,
-    "title": "autem hic labore sunt dolores incidunt",
-    "body": "enim et ex nulla\nomnis voluptas quia qui\nvoluptatem consequatur numquam aliquam sunt\ntotam recusandae id dignissimos aut sed asperiores deserunt"
-  },
-  {
-    "userId": 3,
-    "id": 25,
-    "title": "rem alias distinctio quo quis",
-    "body": "ullam consequatur ut\nomnis quis sit vel consequuntur\nipsa eligendi ipsum molestiae et omnis error nostrum\nmolestiae illo tempore quia et distinctio"
-  },
-  {
-    "userId": 3,
-    "id": 26,
-    "title": "est et quae odit qui non",
-    "body": "similique esse doloribus nihil accusamus\nomnis dolorem fuga consequuntur reprehenderit fugit recusandae temporibus\nperspiciatis cum ut laudantium\nomnis aut molestiae vel vero"
-  },
-  {
-    "userId": 3,
-    "id": 27,
-    "title": "quasi id et eos tenetur aut quo autem",
-    "body": "eum sed dolores ipsam sint possimus debitis occaecati\ndebitis qui qui et\nut placeat enim earum aut odit facilis\nconsequatur suscipit necessitatibus rerum sed inventore temporibus consequatur"
-  },
-  {
-    "userId": 3,
-    "id": 28,
-    "title": "delectus ullam et corporis nulla voluptas sequi",
-    "body": "non et quaerat ex quae ad maiores\nmaiores recusandae totam aut blanditiis mollitia quas illo\nut voluptatibus voluptatem\nsimilique nostrum eum"
-  },
-  {
-    "userId": 3,
-    "id": 29,
-    "title": "iusto eius quod necessitatibus culpa ea",
-    "body": "odit magnam ut saepe sed non qui\ntempora atque nihil\naccusamus illum doloribus illo dolor\neligendi repudiandae odit magni similique sed cum maiores"
-  },
-  {
-    "userId": 3,
-    "id": 30,
-    "title": "a quo magni similique perferendis",
-    "body": "alias dolor cumque\nimpedit blanditiis non eveniet odio maxime\nblanditiis amet eius quis tempora quia autem rem\na provident perspiciatis quia"
-  }
-]
-
+  <testcase name="testParallel" classname="examples.ExamplesTest" time="1.43">
+    <system-out><![CDATA[19:28:02.125 [main] INFO  com.intuit.karate.Runner - using system property 'karate.options': --tags @val03
+19:28:02.535 [main] DEBUG com.intuit.karate.Suite - [config] classpath:karate-config.js
+19:28:03.032 [main] INFO  com.intuit.karate - karate.env system property was: null 
+19:28:03.075 [main] INFO  com.intuit.karate - karate.env system property was: null 
 ---------------------------------------------------------
-feature: classpath:examples/karate_01_introduccion_lab/karate_01_introduccion.feature
-scenarios:  4 | passed:  4 | failed:  0 | time: 0,0953
+feature: classpath:examples/karate_03_validaciones_lab/karate_03_validaciones_json_complejos.feature
+scenarios:  2 | passed:  2 | failed:  0 | time: 0,0158
 ---------------------------------------------------------
 
-19:32:45.442 [pool-3-thread-1] INFO  com.intuit.karate.Suite - <<pass>> feature 1 of 11 (10 remaining) classpath:examples/karate_01_introduccion_lab/karate_01_introduccion.feature
-19:32:45.681 [pool-2-thread-2] DEBUG com.intuit.karate - response time in milliseconds: 397
-1 < 201
-1 < Date: Mon, 26 Jan 2026 18:32:45 GMT
-1 < Content-Type: application/json; charset=utf-8
-1 < Content-Length: 108
-1 < Connection: keep-alive
-1 < access-control-allow-credentials: true
-1 < access-control-expose-headers: Location
-1 < Cache-Control: no-cache
-1 < etag: W/"6c-6oDbpvclHtJn4znVxOnTpY/T7qo"
-1 < expires: -1
-1 < location: https://jsonplaceholder.typicode.com/posts/101
-1 < nel: {"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}
-1 < pragma: no-cache
-1 < report-to: {"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=1XG5tNnMYDRPcxvyQzcymKquyZNtdORBAOCm7pqcpxk%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1769452365"}],"max_age":3600}
-1 < reporting-endpoints: heroku-nel="https://nel.heroku.com/reports?s=1XG5tNnMYDRPcxvyQzcymKquyZNtdORBAOCm7pqcpxk%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1769452365"
-1 < Server: cloudflare
-1 < vary: Origin, X-HTTP-Method-Override, Accept-Encoding
-1 < via: 2.0 heroku-router
-1 < x-content-type-options: nosniff
-1 < x-powered-by: Express
-1 < x-ratelimit-limit: 1000
-1 < x-ratelimit-remaining: 999
-1 < x-ratelimit-reset: 1769452381
-1 < cf-cache-status: DYNAMIC
-1 < Server-Timing: cfCacheStatus;desc="DYNAMIC"
-1 < Server-Timing: cfEdge;dur=5,cfOrigin;dur=315
-1 < CF-RAY: 9c421843ce25cc00-MAD
-1 < alt-svc: h3=":443"; ma=86400
-{
-  "userId": 7,
-  "title": "Aumenta la venta de pitos y flautas",
-  "body": "Bla bla bla...",
-  "id": 101
-}
-
-19:32:45.688 [pool-2-thread-4] DEBUG com.intuit.karate - response time in milliseconds: 455
-1 < 200
-1 < Date: Mon, 26 Jan 2026 18:32:45 GMT
-1 < Content-Type: application/json; charset=utf-8
-1 < Transfer-Encoding: chunked
-1 < Connection: keep-alive
-1 < access-control-allow-credentials: true
-1 < Cache-Control: max-age=43200
-1 < etag: W/"11c-0HY/hHFa5y+uiyBfjGo3n4UDzu8"
-1 < expires: -1
-1 < nel: {"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}
-1 < pragma: no-cache
-1 < report-to: {"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=1XG5tNnMYDRPcxvyQzcymKquyZNtdORBAOCm7pqcpxk%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1769452365"}],"max_age":3600}
-1 < reporting-endpoints: heroku-nel="https://nel.heroku.com/reports?s=1XG5tNnMYDRPcxvyQzcymKquyZNtdORBAOCm7pqcpxk%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1769452365"
-1 < Server: cloudflare
-1 < vary: Origin, Accept-Encoding
-1 < via: 2.0 heroku-router
-1 < x-content-type-options: nosniff
-1 < x-powered-by: Express
-1 < x-ratelimit-limit: 1000
-1 < x-ratelimit-remaining: 998
-1 < x-ratelimit-reset: 1769452381
-1 < Server-Timing: cfCacheStatus;desc="MISS"
-1 < Server-Timing: cfEdge;dur=10,cfOrigin;dur=316
-1 < cf-cache-status: MISS
-1 < CF-RAY: 9c421843cca2cc03-MAD
-1 < alt-svc: h3=":443"; ma=86400
-{
-  "userId": 8,
-  "id": 80,
-  "title": "labore in ex et explicabo corporis aut quas",
-  "body": "ex quod dolorem ea eum iure qui provident amet\nquia qui facere excepturi et repudiandae\nasperiores molestias provident\nminus incidunt vero fugit rerum sint sunt excepturi provident"
-}
-
-19:32:45.689 [pool-2-thread-1] DEBUG com.intuit.karate - response time in milliseconds: 457
-1 < 200
-1 < Date: Mon, 26 Jan 2026 18:32:45 GMT
-1 < Content-Type: application/json; charset=utf-8
-1 < Transfer-Encoding: chunked
-1 < Connection: keep-alive
-1 < access-control-allow-credentials: true
-1 < Cache-Control: max-age=43200
-1 < etag: W/"104-Yd+P3vUk4gJ20H3qrEyZIqbProI"
-1 < expires: -1
-1 < nel: {"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}
-1 < pragma: no-cache
-1 < report-to: {"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=FpbcP%2F59HQ%2FHIHUnbzFc7V3tc1ffYFodpM17NMZeM5A%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1768070910"}],"max_age":3600}
-1 < reporting-endpoints: heroku-nel="https://nel.heroku.com/reports?s=FpbcP%2F59HQ%2FHIHUnbzFc7V3tc1ffYFodpM17NMZeM5A%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1768070910"
-1 < Server: cloudflare
-1 < vary: Origin, Accept-Encoding
-1 < via: 2.0 heroku-router
-1 < x-content-type-options: nosniff
-1 < x-powered-by: Express
-1 < x-ratelimit-limit: 1000
-1 < x-ratelimit-remaining: 999
-1 < x-ratelimit-reset: 1768070932
-1 < Server-Timing: cfCacheStatus;desc="REVALIDATED"
-1 < Server-Timing: cfEdge;dur=9,cfOrigin;dur=321
-1 < cf-cache-status: REVALIDATED
-1 < CF-RAY: 9c421843c953a5f5-MAD
-1 < alt-svc: h3=":443"; ma=86400
-{
-  "userId": 1,
-  "id": 8,
-  "title": "dolorem dolore est ipsam",
-  "body": "dignissimos aperiam dolorem qui eum\nfacilis quibusdam animi sint suscipit qui sint possimus cum\nquaerat magni maiores excepturi\nipsam ut commodi dolor voluptatum modi aut vitae"
-}
-
----------------------------------------------------------
-feature: classpath:examples/karate_02_peticiones_http_lab/karate_01_peticiones_http_get.feature
-scenarios:  6 | passed:  6 | failed:  0 | time: 1,8065
----------------------------------------------------------
-
-19:32:45.815 [pool-3-thread-1] INFO  com.intuit.karate.Suite - <<pass>> feature 2 of 11 (9 remaining) classpath:examples/karate_02_peticiones_http_lab/karate_01_peticiones_http_get.feature
----------------------------------------------------------
-feature: classpath:examples/karate_02_peticiones_http_lab/karate_02_peticiones_http_post.feature
-scenarios:  1 | passed:  1 | failed:  0 | time: 0,4251
----------------------------------------------------------
-
-19:32:45.837 [pool-3-thread-1] INFO  com.intuit.karate.Suite - <<pass>> feature 3 of 11 (8 remaining) classpath:examples/karate_02_peticiones_http_lab/karate_02_peticiones_http_post.feature
+19:28:03.311 [main] INFO  com.intuit.karate.Suite - <<pass>> feature 7 of 12 (0 remaining) classpath:examples/karate_03_validaciones_lab/karate_03_validaciones_json_complejos.feature
+19:28:03.312 [main] DEBUG com.intuit.karate.Suite - waiting for 12 features to complete
 Karate version: 1.4.1
 ======================================================
-elapsed:   1,58 | threads:    5 | thread time: 2,33 
-features:     3 | skipped:    8 | efficiency: 0,29
-scenarios:   11 | passed:    11 | failed: 0
+elapsed:   1,19 | threads:    1 | thread time: 0,02 
+features:     1 | skipped:   11 | efficiency: 0,01
+scenarios:    2 | passed:     2 | failed: 0
 ======================================================
 
 HTML report: (paste into browser to view) | Karate version: 1.4.1
