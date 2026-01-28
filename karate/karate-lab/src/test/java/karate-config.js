@@ -4,9 +4,21 @@ function fn() {
   if (!env) {
     env = 'dev';
   }
+  const currency = '#string'
+
   var config = {
     env: env,
-    myVarName: 'someValue'
+    myVarName: 'someValue',
+    tipos: {
+      fare: {
+        objects: '#object',
+        currency,
+      },
+      basket: {
+        currency,
+        elements: '#array'
+      }
+    }
   }
   if (env == 'dev') {
     // customize

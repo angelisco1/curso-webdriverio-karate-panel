@@ -102,19 +102,21 @@ Feature: Validaciones de listas de datos
   Scenario: Validar que cada agente tiene la estructura de datos correcta
     * match each agentes ==
       """
-      {
-        id: '#number',
-        nombre: '#string',
-        email: '#string',
-        edad: '#number',
-        activo: '#boolean',
-        organizaciones: '#array',
-        añosServicio: '#number',
-        agencia: '#string',
-        identidadEncubierta: '#string',
-        casosPrincipales: '#array'
-      }
+        {
+          id: '#number',
+          nombre: '#string',
+          email: '#string',
+          edad: '#number',
+          activo: '#boolean',
+          organizaciones: '#array',
+          añosServicio: '#number',
+          agencia: '#string',
+          identidadEncubierta: '#string',
+          casosPrincipales: '#array'
+        }
       """
+    * def schemaAgente = read('classpath:schemas/agente.schema.json')
+    * match each agentes == schemaAgente
 
 
   Scenario: Validar que los emails no se repiten

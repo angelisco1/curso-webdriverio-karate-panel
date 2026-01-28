@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="examples.ExamplesTest" time="1.444" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="examples.ExamplesTest" time="2.011" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -13,7 +13,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="ES"/>
     <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk@17/17.0.11/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/angelisco1/Pronoide/mis-cursos/curso-webdriverio-karate-panel/karate/karate-lab/target/surefire/surefirebooter-20260127192801646_3.jar /Users/angelisco1/Pronoide/mis-cursos/curso-webdriverio-karate-panel/karate/karate-lab/target/surefire 2026-01-27T19-28-01_595-jvmRun1 surefire-20260127192801646_1tmp surefire_0-20260127192801646_2tmp"/>
+    <property name="sun.java.command" value="/Users/angelisco1/Pronoide/mis-cursos/curso-webdriverio-karate-panel/karate/karate-lab/target/surefire/surefirebooter-20260128192423671_3.jar /Users/angelisco1/Pronoide/mis-cursos/curso-webdriverio-karate-panel/karate/karate-lab/target/surefire 2026-01-28T19-24-23_626-jvmRun1 surefire-20260128192423671_1tmp surefire_0-20260128192423671_2tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/angelisco1/Pronoide/mis-cursos/curso-webdriverio-karate-panel/karate/karate-lab/target/test-classes:/Users/angelisco1/Pronoide/mis-cursos/curso-webdriverio-karate-panel/karate/karate-lab/target/classes:/Users/angelisco1/.m2/repository/com/intuit/karate/karate-junit5/1.4.1/karate-junit5-1.4.1.jar:/Users/angelisco1/.m2/repository/com/intuit/karate/karate-core/1.4.1/karate-core-1.4.1.jar:/Users/angelisco1/.m2/repository/org/graalvm/js/js-scriptengine/22.3.3/js-scriptengine-22.3.3.jar:/Users/angelisco1/.m2/repository/org/graalvm/sdk/graal-sdk/22.3.3/graal-sdk-22.3.3.jar:/Users/angelisco1/.m2/repository/org/graalvm/js/js/22.3.3/js-22.3.3.jar:/Users/angelisco1/.m2/repository/org/graalvm/regex/regex/22.3.3/regex-22.3.3.jar:/Users/angelisco1/.m2/repository/org/graalvm/truffle/truffle-api/22.3.3/truffle-api-22.3.3.jar:/Users/angelisco1/.m2/repository/com/ibm/icu/icu4j/71.1/icu4j-71.1.jar:/Users/angelisco1/.m2/repository/org/thymeleaf/thymeleaf/3.1.2.RELEASE/thymeleaf-3.1.2.RELEASE.jar:/Users/angelisco1/.m2/repository/ognl/ognl/3.3.4/ognl-3.3.4.jar:/Users/angelisco1/.m2/repository/org/javassist/javassist/3.29.0-GA/javassist-3.29.0-GA.jar:/Users/angelisco1/.m2/repository/org/attoparser/attoparser/2.0.7.RELEASE/attoparser-2.0.7.RELEASE.jar:/Users/angelisco1/.m2/repository/org/unbescape/unbescape/1.1.6.RELEASE/unbescape-1.1.6.RELEASE.jar:/Users/angelisco1/.m2/repository/org/slf4j/slf4j-api/2.0.7/slf4j-api-2.0.7.jar:/Users/angelisco1/.m2/repository/com/linecorp/armeria/armeria/1.25.2/armeria-1.25.2.jar:/Users/angelisco1/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.2/jackson-core-2.15.2.jar:/Users/angelisco1/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.15.2/jackson-annotations-2.15.2.jar:/Users/angelisco1/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.15.2/jackson-databind-2.15.2.jar:/Users/angelisco1/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.15.2/jackson-datatype-jdk8-2.15.2.jar:/Users/angelisco1/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.15.2/jackson-datatype-jsr310-2.15.2.jar:/Users/angelisco1/.m2/repository/io/micrometer/micrometer-core/1.11.3/micrometer-core-1.11.3.jar:/Users/angelisco1/.m2/repository/io/micrometer/micrometer-commons/1.11.3/micrometer-commons-1.11.3.jar:/Users/angelisco1/.m2/repository/io/micrometer/micrometer-observation/1.11.3/micrometer-observation-1.11.3.jar:/Users/angelisco1/.m2/repository/org/hdrhistogram/HdrHistogram/2.1.12/HdrHistogram-2.1.12.jar:/Users/angelisco1/.m2/repository/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3.jar:/Users/angelisco1/.m2/repository/io/netty/netty-transport/4.1.96.Final/netty-transport-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-common/4.1.96.Final/netty-common-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-buffer/4.1.96.Final/netty-buffer-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-resolver/4.1.96.Final/netty-resolver-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-codec-haproxy/4.1.96.Final/netty-codec-haproxy-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-codec/4.1.96.Final/netty-codec-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-codec-http2/4.1.96.Final/netty-codec-http2-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-handler/4.1.96.Final/netty-handler-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-codec-http/4.1.96.Final/netty-codec-http-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-resolver-dns/4.1.96.Final/netty-resolver-dns-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-codec-dns/4.1.96.Final/netty-codec-dns-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar:/Users/angelisco1/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/Users/angelisco1/.m2/repository/io/netty/netty-handler-proxy/4.1.96.Final/netty-handler-proxy-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-codec-socks/4.1.96.Final/netty-codec-socks-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.96.Final/netty-transport-native-unix-common-4.1.96.Final-linux-x86_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-transport-native-epoll/4.1.96.Final/netty-transport-native-epoll-4.1.96.Final-linux-x86_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.96.Final/netty-transport-native-unix-common-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-transport-classes-epoll/4.1.96.Final/netty-transport-classes-epoll-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.96.Final/netty-transport-native-unix-common-4.1.96.Final-linux-aarch_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-transport-native-epoll/4.1.96.Final/netty-transport-native-epoll-4.1.96.Final-linux-aarch_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.96.Final/netty-transport-native-unix-common-4.1.96.Final-osx-x86_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-transport-native-kqueue/4.1.96.Final/netty-transport-native-kqueue-4.1.96.Final-osx-x86_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-transport-classes-kqueue/4.1.96.Final/netty-transport-classes-kqueue-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-resolver-dns-native-macos/4.1.96.Final/netty-resolver-dns-native-macos-4.1.96.Final-osx-x86_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-resolver-dns-classes-macos/4.1.96.Final/netty-resolver-dns-classes-macos-4.1.96.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.96.Final/netty-transport-native-unix-common-4.1.96.Final-osx-aarch_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-transport-native-kqueue/4.1.96.Final/netty-transport-native-kqueue-4.1.96.Final-osx-aarch_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-resolver-dns-native-macos/4.1.96.Final/netty-resolver-dns-native-macos-4.1.96.Final-osx-aarch_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.61.Final/netty-tcnative-boringssl-static-2.0.61.Final-linux-x86_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-tcnative-classes/2.0.61.Final/netty-tcnative-classes-2.0.61.Final.jar:/Users/angelisco1/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.61.Final/netty-tcnative-boringssl-static-2.0.61.Final-linux-aarch_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.61.Final/netty-tcnative-boringssl-static-2.0.61.Final-osx-x86_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.61.Final/netty-tcnative-boringssl-static-2.0.61.Final-osx-aarch_64.jar:/Users/angelisco1/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.61.Final/netty-tcnative-boringssl-static-2.0.61.Final-windows-x86_64.jar:/Users/angelisco1/.m2/repository/com/aayushatharva/brotli4j/brotli4j/1.12.0/brotli4j-1.12.0.jar:/Users/angelisco1/.m2/repository/com/aayushatharva/brotli4j/service/1.12.0/service-1.12.0.jar:/Users/angelisco1/.m2/repository/com/aayushatharva/brotli4j/native-osx-aarch64/1.12.0/native-osx-aarch64-1.12.0.jar:/Users/angelisco1/.m2/repository/org/apache/httpcomponents/httpclient/4.5.14/httpclient-4.5.14.jar:/Users/angelisco1/.m2/repository/org/apache/httpcomponents/httpcore/4.4.16/httpcore-4.4.16.jar:/Users/angelisco1/.m2/repository/commons-codec/commons-codec/1.16.0/commons-codec-1.16.0.jar:/Users/angelisco1/.m2/repository/ch/qos/logback/logback-classic/1.4.11/logback-classic-1.4.11.jar:/Users/angelisco1/.m2/repository/ch/qos/logback/logback-core/1.4.11/logback-core-1.4.11.jar:/Users/angelisco1/.m2/repository/org/slf4j/jcl-over-slf4j/2.0.9/jcl-over-slf4j-2.0.9.jar:/Users/angelisco1/.m2/repository/org/antlr/antlr4-runtime/4.11.1/antlr4-runtime-4.11.1.jar:/Users/angelisco1/.m2/repository/com/jayway/jsonpath/json-path/2.8.0/json-path-2.8.0.jar:/Users/angelisco1/.m2/repository/net/minidev/json-smart/2.4.10/json-smart-2.4.10.jar:/Users/angelisco1/.m2/repository/net/minidev/accessors-smart/2.4.9/accessors-smart-2.4.9.jar:/Users/angelisco1/.m2/repository/org/ow2/asm/asm/9.3/asm-9.3.jar:/Users/angelisco1/.m2/repository/org/yaml/snakeyaml/2.0/snakeyaml-2.0.jar:/Users/angelisco1/.m2/repository/de/siegmar/fastcsv/2.2.1/fastcsv-2.2.1.jar:/Users/angelisco1/.m2/repository/info/picocli/picocli/4.7.1/picocli-4.7.1.jar:/Users/angelisco1/.m2/repository/io/github/classgraph/classgraph/4.8.160/classgraph-4.8.160.jar:/Users/angelisco1/.m2/repository/io/github/t12y/resemble/1.0.2/resemble-1.0.2.jar:/Users/angelisco1/.m2/repository/io/github/t12y/ssim/1.0.0/ssim-1.0.0.jar:/Users/angelisco1/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.3/junit-jupiter-api-5.9.3.jar:/Users/angelisco1/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/angelisco1/.m2/repository/org/junit/platform/junit-platform-commons/1.9.3/junit-platform-commons-1.9.3.jar:/Users/angelisco1/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/angelisco1/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.3/junit-jupiter-engine-5.9.3.jar:/Users/angelisco1/.m2/repository/org/junit/platform/junit-platform-engine/1.9.3/junit-platform-engine-1.9.3.jar:"/>
@@ -29,8 +29,8 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="karate.options" value="--tags @val03"/>
-    <property name="surefire.real.class.path" value="/Users/angelisco1/Pronoide/mis-cursos/curso-webdriverio-karate-panel/karate/karate-lab/target/surefire/surefirebooter-20260127192801646_3.jar"/>
+    <property name="karate.options" value="--tags @mocks"/>
+    <property name="surefire.real.class.path" value="/Users/angelisco1/Pronoide/mis-cursos/curso-webdriverio-karate-panel/karate/karate-lab/target/surefire/surefirebooter-20260128192423671_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="17.0.11+0"/>
@@ -57,23 +57,194 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testParallel" classname="examples.ExamplesTest" time="1.43">
-    <system-out><![CDATA[19:28:02.125 [main] INFO  com.intuit.karate.Runner - using system property 'karate.options': --tags @val03
-19:28:02.535 [main] DEBUG com.intuit.karate.Suite - [config] classpath:karate-config.js
-19:28:03.032 [main] INFO  com.intuit.karate - karate.env system property was: null 
-19:28:03.075 [main] INFO  com.intuit.karate - karate.env system property was: null 
+  <testcase name="testParallel" classname="examples.ExamplesTest" time="2.004">
+    <system-out><![CDATA[19:24:24.067 [main] INFO  com.intuit.karate.Runner - using system property 'karate.options': --tags @mocks
+19:24:24.411 [main] DEBUG com.intuit.karate.Suite - [config] classpath:karate-config.js
+19:24:24.859 [main] INFO  com.intuit.karate - karate.env system property was: null 
+19:24:24.911 [main] INFO  com.linecorp.armeria.common.Flags - verboseExceptionSampler: ExceptionSampler{rate-limit=10} (default)
+19:24:24.912 [main] INFO  com.linecorp.armeria.common.Flags - verboseExceptions: rate-limit=10 (default)
+19:24:24.912 [main] INFO  com.linecorp.armeria.common.Flags - preferredIpV4Addresses: * (default)
+19:24:24.912 [main] INFO  com.linecorp.armeria.common.Flags - verboseSocketExceptions: false (default)
+19:24:24.912 [main] INFO  com.linecorp.armeria.common.Flags - verboseResponses: false (default)
+19:24:24.913 [main] INFO  com.linecorp.armeria.common.Flags - requestContextStorageProvider: thread-local (default)
+19:24:24.913 [main] INFO  com.linecorp.armeria.common.Flags - warnNettyVersions: true (default)
+19:24:25.096 [main] INFO  com.linecorp.armeria.common.Flags - useEpoll: false (default)
+19:24:25.097 [main] INFO  com.linecorp.armeria.common.Flags - Using Kqueue
+19:24:25.097 [main] INFO  com.linecorp.armeria.common.Flags - transportType: KQUEUE (default)
+19:24:25.097 [main] INFO  com.linecorp.armeria.common.Flags - maxNumConnections: 2147483647 (default)
+19:24:25.097 [main] INFO  com.linecorp.armeria.common.Flags - numCommonWorkers: 22 (default)
+19:24:25.097 [main] INFO  com.linecorp.armeria.common.Flags - numCommonBlockingTaskThreads: 200 (default)
+19:24:25.097 [main] INFO  com.linecorp.armeria.common.Flags - defaultMaxRequestLength: 10485760 (default)
+19:24:25.098 [main] INFO  com.linecorp.armeria.common.Flags - defaultMaxResponseLength: 10485760 (default)
+19:24:25.098 [main] INFO  com.linecorp.armeria.common.Flags - defaultRequestTimeoutMillis: 10000 (default)
+19:24:25.098 [main] INFO  com.linecorp.armeria.common.Flags - defaultResponseTimeoutMillis: 15000 (default)
+19:24:25.098 [main] INFO  com.linecorp.armeria.common.Flags - defaultConnectTimeoutMillis: 3200 (default)
+19:24:25.098 [main] INFO  com.linecorp.armeria.common.Flags - defaultWriteTimeoutMillis: 1000 (default)
+19:24:25.098 [main] INFO  com.linecorp.armeria.common.Flags - defaultServerIdleTimeoutMillis: 15000 (default)
+19:24:25.098 [main] INFO  com.linecorp.armeria.common.Flags - defaultServerKeepAliveOnPing: false (default)
+19:24:25.099 [main] INFO  com.linecorp.armeria.common.Flags - defaultClientIdleTimeoutMillis: 10000 (default)
+19:24:25.099 [main] INFO  com.linecorp.armeria.common.Flags - defaultClientKeepAliveOnPing: false (default)
+19:24:25.099 [main] INFO  com.linecorp.armeria.common.Flags - defaultPingIntervalMillis: 0 (default)
+19:24:25.099 [main] INFO  com.linecorp.armeria.common.Flags - defaultMaxServerNumRequestsPerConnection: 0 (default)
+19:24:25.099 [main] INFO  com.linecorp.armeria.common.Flags - defaultMaxClientNumRequestsPerConnection: 0 (default)
+19:24:25.099 [main] INFO  com.linecorp.armeria.common.Flags - defaultMaxServerConnectionAgeMillis: 0 (default)
+19:24:25.099 [main] INFO  com.linecorp.armeria.common.Flags - defaultMaxClientConnectionAgeMillis: 0 (default)
+19:24:25.099 [main] INFO  com.linecorp.armeria.common.Flags - defaultServerConnectionDrainDurationMicros: 1000000 (default)
+19:24:25.100 [main] INFO  com.linecorp.armeria.common.Flags - defaultHttp2InitialConnectionWindowSize: 1048576 (default)
+19:24:25.100 [main] INFO  com.linecorp.armeria.common.Flags - defaultHttp2InitialStreamWindowSize: 1048576 (default)
+19:24:25.100 [main] INFO  com.linecorp.armeria.common.Flags - defaultHttp2MaxFrameSize: 16384 (default)
+19:24:25.100 [main] INFO  com.linecorp.armeria.common.Flags - defaultHttp2MaxStreamsPerConnection: 2147483647 (default)
+19:24:25.100 [main] INFO  com.linecorp.armeria.common.Flags - defaultHttp2MaxHeaderListSize: 8192 (default)
+19:24:25.100 [main] INFO  com.linecorp.armeria.common.Flags - defaultHttp1MaxInitialLineLength: 4096 (default)
+19:24:25.100 [main] INFO  com.linecorp.armeria.common.Flags - defaultHttp1MaxHeaderSize: 8192 (default)
+19:24:25.101 [main] INFO  com.linecorp.armeria.common.Flags - defaultHttp1MaxChunkSize: 8192 (default)
+19:24:25.101 [main] INFO  com.linecorp.armeria.common.Flags - defaultUseHttp2Preface: true (default)
+19:24:25.101 [main] INFO  com.linecorp.armeria.common.Flags - defaultUseHttp2WithoutAlpn: false (default)
+19:24:25.101 [main] INFO  com.linecorp.armeria.common.Flags - defaultUseHttp1Pipelining: false (default)
+19:24:25.104 [main] INFO  com.linecorp.armeria.common.Flags - defaultBackoffSpec: exponential=200:10000,jitter=0.2 (default)
+19:24:25.104 [main] INFO  com.linecorp.armeria.common.Flags - defaultMaxTotalAttempts: 10 (default)
+19:24:25.104 [main] INFO  com.linecorp.armeria.common.Flags - defaultRequestAutoAbortDelayMillis: 0 (default)
+19:24:25.108 [main] INFO  com.linecorp.armeria.common.Flags - routeCacheSpec: maximumSize=4096 (default)
+19:24:25.108 [main] INFO  com.linecorp.armeria.common.Flags - routeDecoratorCacheSpec: maximumSize=4096 (default)
+19:24:25.108 [main] INFO  com.linecorp.armeria.common.Flags - parsedPathCacheSpec: maximumSize=4096 (default)
+19:24:25.108 [main] INFO  com.linecorp.armeria.common.Flags - headerValueCacheSpec: maximumSize=4096 (default)
+19:24:25.108 [main] INFO  com.linecorp.armeria.common.Flags - cachedHeaders: [:authority, :scheme, :method, accept-encoding, content-type] (default)
+19:24:25.108 [main] INFO  com.linecorp.armeria.common.Flags - fileServiceCacheSpec: maximumSize=1024 (default)
+19:24:25.109 [main] INFO  com.linecorp.armeria.common.Flags - dnsCacheSpec: maximumSize=4096 (default)
+19:24:25.109 [main] INFO  com.linecorp.armeria.common.Flags - annotatedServiceExceptionVerbosity: unhandled (default)
+19:24:25.109 [main] INFO  com.linecorp.armeria.common.Flags - useJdkDnsResolver: false (default)
+19:24:25.109 [main] INFO  com.linecorp.armeria.common.Flags - reportBlockedEventLoop: true (default)
+19:24:25.109 [main] INFO  com.linecorp.armeria.common.Flags - reportMaskedRoutes: true (default)
+19:24:25.109 [main] INFO  com.linecorp.armeria.common.Flags - validateHeaders: true (default)
+19:24:25.109 [main] INFO  com.linecorp.armeria.common.Flags - tlsAllowUnsafeCiphers: false (default)
+19:24:25.110 [main] INFO  com.linecorp.armeria.common.Flags - transientServiceOptions: [] (default)
+19:24:25.110 [main] INFO  com.linecorp.armeria.common.Flags - useLegacyRouteDecoratorOrdering: false (default)
+19:24:25.110 [main] INFO  com.linecorp.armeria.common.Flags - useDefaultSocketOptions: true (default)
+19:24:25.110 [main] INFO  com.linecorp.armeria.common.Flags - allowDoubleDotsInQueryString: false (default)
+19:24:25.110 [main] INFO  com.linecorp.armeria.common.Flags - allowSemicolonInPathComponent: false (default)
+19:24:25.110 [main] INFO  com.linecorp.armeria.common.Flags - defaultMultipartUploadsLocation: /var/folders/rp/0nb9h1wd69v3y__1m74x5wcr0000gn/T/armeria/multipart-uploads (default)
+19:24:25.111 [main] INFO  com.linecorp.armeria.common.Flags - requestContextLeakDetectionSampler: never (default)
+19:24:25.113 [main] INFO  com.linecorp.armeria.common.Flags - meterRegistry: io.micrometer.core.instrument.composite.CompositeMeterRegistry@5099c59b (default)
+19:24:25.114 [main] INFO  com.linecorp.armeria.common.Flags - defaultUnhandledExceptionsReportIntervalMillis: 10000 (default)
+19:24:25.156 [main] INFO  com.intuit.karate - mock server initialized: /Users/angelisco1/Pronoide/mis-cursos/curso-webdriverio-karate-panel/karate/karate-lab/target/test-classes/mocks/jsonplaceholder-mock.feature
+19:24:25.172 [main] INFO  c.l.armeria.common.util.SystemInfo - hostname: macbook-pro-de-angel.local (from 'hostname' command)
+19:24:25.220 [armeria-boss-http-*:63300] INFO  com.linecorp.armeria.server.Server - Serving HTTP at /[0:0:0:0:0:0:0:0%0]:63300 - http://127.0.0.1:63300/
+19:24:25.220 [main] DEBUG com.intuit.karate.http.HttpServer - server started: macbook-pro-de-angel.local:63300
+19:24:25.309 [main] DEBUG com.intuit.karate - request:
+1 > GET http://localhost:63300/posts/1
+1 > Host: localhost:63300
+1 > Connection: Keep-Alive
+1 > User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.11)
+1 > Accept-Encoding: gzip,deflate
+
+
+19:24:25.367 [armeria-common-worker-kqueue-3-1] INFO  c.l.a.i.common.JavaVersionSpecific - Using the APIs optimized for: Java 12+
+19:24:25.395 [armeria-common-worker-kqueue-3-1] DEBUG com.intuit.karate - scenario matched at line 6: methodIs('get') && pathMatches('/posts/1')
+19:24:25.412 [main] DEBUG com.intuit.karate - response time in milliseconds: 102
+1 < 200
+1 < content-type: application/json
+1 < content-length: 80
+1 < server: Armeria/1.25.2
+1 < date: Wed, 28 Jan 2026 18:24:25 GMT
+{"id":1,"title":"Un título cualquiera","body":"Un post cualquiera","userId":10}
+
+19:24:25.424 [main] INFO  com.intuit.karate - karate.env system property was: null 
+19:24:25.429 [main] INFO  com.intuit.karate - mock server initialized: /Users/angelisco1/Pronoide/mis-cursos/curso-webdriverio-karate-panel/karate/karate-lab/target/test-classes/mocks/jsonplaceholder-mock.feature
+19:24:25.431 [armeria-boss-http-*:63302] INFO  com.linecorp.armeria.server.Server - Serving HTTP at /[0:0:0:0:0:0:0:0%0]:63302 - http://127.0.0.1:63302/
+19:24:25.431 [main] DEBUG com.intuit.karate.http.HttpServer - server started: macbook-pro-de-angel.local:63302
+19:24:25.433 [main] DEBUG com.intuit.karate - request:
+1 > GET http://localhost:63302/posts?userId=9
+1 > Host: localhost:63302
+1 > Connection: Keep-Alive
+1 > User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.11)
+1 > Accept-Encoding: gzip,deflate
+
+
+19:24:25.443 [armeria-common-worker-kqueue-3-2] DEBUG com.intuit.karate - scenario matched at line 18: methodIs('get') && pathMatches('/posts') && paramExists('userId')
+19:24:25.453 [main] DEBUG com.intuit.karate - response time in milliseconds: 19
+1 < 200
+1 < content-type: application/json
+1 < content-length: 175
+1 < server: Armeria/1.25.2
+1 < date: Wed, 28 Jan 2026 18:24:25 GMT
+[{"id":12,"title":"Un título cualquiera 12","body":"Un post cualquiera 12","userId":9},{"id":18,"title":"Un título cualquiera 18","body":"Un post cualquiera 18","userId":9}]
+
+19:24:25.461 [main] INFO  com.intuit.karate - karate.env system property was: null 
+19:24:25.466 [main] INFO  com.intuit.karate - mock server initialized: /Users/angelisco1/Pronoide/mis-cursos/curso-webdriverio-karate-panel/karate/karate-lab/target/test-classes/mocks/jsonplaceholder-mock.feature
+19:24:25.467 [armeria-boss-http-*:63304] INFO  com.linecorp.armeria.server.Server - Serving HTTP at /[0:0:0:0:0:0:0:0%0]:63304 - http://127.0.0.1:63304/
+19:24:25.468 [main] DEBUG com.intuit.karate.http.HttpServer - server started: macbook-pro-de-angel.local:63304
+19:24:25.471 [main] DEBUG com.intuit.karate - request:
+1 > POST http://localhost:63304/posts
+1 > Content-Type: application/json; charset=UTF-8
+1 > Content-Length: 71
+1 > Host: localhost:63304
+1 > Connection: Keep-Alive
+1 > User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.11)
+1 > Accept-Encoding: gzip,deflate
+{"title":"Un nuevo post","body":"El body de un nuevo post","userId":12}
+
+19:24:25.489 [armeria-common-worker-kqueue-3-3] DEBUG com.intuit.karate - scenario matched at line 39: methodIs('post') && pathMatches('/posts')
+19:24:25.492 [main] DEBUG com.intuit.karate - response time in milliseconds: 21
+1 < 201
+1 < content-type: application/json
+1 < content-length: 80
+1 < server: Armeria/1.25.2
+1 < date: Wed, 28 Jan 2026 18:24:25 GMT
+{"id":110,"title":"Un nuevo post","body":"El body de un nuevo post","userId":12}
+
+19:24:25.495 [main] INFO  com.intuit.karate - karate.env system property was: null 
+19:24:25.500 [main] INFO  com.intuit.karate - mock server initialized: /Users/angelisco1/Pronoide/mis-cursos/curso-webdriverio-karate-panel/karate/karate-lab/target/test-classes/mocks/jsonplaceholder-mock.feature
+19:24:25.501 [armeria-boss-http-*:63306] INFO  com.linecorp.armeria.server.Server - Serving HTTP at /[0:0:0:0:0:0:0:0%0]:63306 - http://127.0.0.1:63306/
+19:24:25.501 [main] DEBUG com.intuit.karate.http.HttpServer - server started: macbook-pro-de-angel.local:63306
+19:24:25.502 [main] DEBUG com.intuit.karate - request:
+1 > DELETE http://localhost:63306/posts/5
+1 > Host: localhost:63306
+1 > Connection: Keep-Alive
+1 > User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.11)
+1 > Accept-Encoding: gzip,deflate
+
+
+19:24:25.512 [armeria-common-worker-kqueue-3-4] DEBUG com.intuit.karate - scenario matched at line 53: methodIs('delete')
+19:24:25.514 [main] DEBUG com.intuit.karate - response time in milliseconds: 12
+1 < 204
+1 < server: Armeria/1.25.2
+1 < date: Wed, 28 Jan 2026 18:24:25 GMT
+
+
+19:24:25.517 [main] INFO  com.intuit.karate - karate.env system property was: null 
+19:24:25.521 [main] INFO  com.intuit.karate - mock server initialized: /Users/angelisco1/Pronoide/mis-cursos/curso-webdriverio-karate-panel/karate/karate-lab/target/test-classes/mocks/jsonplaceholder-mock.feature
+19:24:25.522 [armeria-boss-http-*:63308] INFO  com.linecorp.armeria.server.Server - Serving HTTP at /[0:0:0:0:0:0:0:0%0]:63308 - http://127.0.0.1:63308/
+19:24:25.523 [main] DEBUG com.intuit.karate.http.HttpServer - server started: macbook-pro-de-angel.local:63308
+19:24:25.525 [main] DEBUG com.intuit.karate - request:
+1 > GET http://localhost:63308/users/12
+1 > Host: localhost:63308
+1 > Connection: Keep-Alive
+1 > User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.11)
+1 > Accept-Encoding: gzip,deflate
+
+
+19:24:25.534 [armeria-common-worker-kqueue-3-5] DEBUG com.intuit.karate - scenario matched at line 58: methodIs('get') && pathMatches('/users/{id}')
+19:24:25.535 [main] DEBUG com.intuit.karate - response time in milliseconds: 10
+1 < 200
+1 < content-type: application/json
+1 < content-length: 402
+1 < server: Armeria/1.25.2
+1 < date: Wed, 28 Jan 2026 18:24:25 GMT
+{"id":12,"name":"Charly Falco","username":"cfalco","email":"cfalco@gmail.com","address":{"street":"Kulas Light","suite":"Apt. 556","city":"Gwenborough","zipcode":"92998-3874","geo":{"lat":"-37.3159","lng":"81.1496"}},"phone":"1-770-736-8031 x56442","website":"hildegard.org","company":{"name":"Romaguera-Crona","catchPhrase":"Multi-layered client-server neural-net","bs":"harness real-time e-markets"}}
+
+19:24:25.537 [main] INFO  com.intuit.karate - [print] 12 
 ---------------------------------------------------------
-feature: classpath:examples/karate_03_validaciones_lab/karate_03_validaciones_json_complejos.feature
-scenarios:  2 | passed:  2 | failed:  0 | time: 0,0158
+feature: classpath:examples/karate_07_mocks_lab/karate_01_mocks.feature
+scenarios:  5 | passed:  5 | failed:  0 | time: 0,6441
 ---------------------------------------------------------
 
-19:28:03.311 [main] INFO  com.intuit.karate.Suite - <<pass>> feature 7 of 12 (0 remaining) classpath:examples/karate_03_validaciones_lab/karate_03_validaciones_json_complejos.feature
-19:28:03.312 [main] DEBUG com.intuit.karate.Suite - waiting for 12 features to complete
+19:24:25.867 [main] INFO  com.intuit.karate.Suite - <<pass>> feature 12 of 12 (0 remaining) classpath:examples/karate_07_mocks_lab/karate_01_mocks.feature
+19:24:25.867 [main] DEBUG com.intuit.karate.Suite - waiting for 12 features to complete
 Karate version: 1.4.1
 ======================================================
-elapsed:   1,19 | threads:    1 | thread time: 0,02 
-features:     1 | skipped:   11 | efficiency: 0,01
-scenarios:    2 | passed:     2 | failed: 0
+elapsed:   1,81 | threads:    1 | thread time: 0,64 
+features:     1 | skipped:   11 | efficiency: 0,36
+scenarios:    5 | passed:     5 | failed: 0
 ======================================================
 
 HTML report: (paste into browser to view) | Karate version: 1.4.1

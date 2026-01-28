@@ -112,49 +112,64 @@ Feature: Validaciones JSON complejos
   # Scenario: En las estadísticas globales, la moneda debe ser "pst"
 
 
-  # @deepscan
-  # Scenario: Dentro del JSON hay un producto con el nombre "Perrito piloto con gafas"
+  @deepscan
+  Scenario: Dentro del JSON hay un producto con el nombre "Perrito piloto con gafas"
+    * def nombresProductos = get maquinaExpendedora..nombre
+    * print nombresProductos
+    * match nombresProductos contains "Perrito piloto con gafas"
+
+  @deepscan
+  Scenario: Extraer todos los códigos de la máquina en una sola lista y comprobar que el código "A1" está entre ellos
+    * def codigosProductos = get maquinaExpendedora..codigo
+    * match codigosProductos contains "A1"
+
+  @deepscan
+  Scenario: Validar que todos los campos de precios son numéricos
+    * def preciosProductos = get maquinaExpendedora..precio
+    * match each preciosProductos == "#number"
+
+  @filtros
+  Scenario: Encontrar el objeto del producto cuyo código es "B1" y validar que su nombre es "Perrito piloto con gafas"
+    * def productos = get maquinaExpendedora.inventario.secciones..productos[?(@.codigo == "B1")]
+    * def productoB1 = productos[0]
+    * match productoB1.nombre == "Perrito piloto con gafas"
 
 
-  # @deepscan
-  # Scenario: Extraer todos los códigos de la máquina en una sola lista y comprobar que el código "A1" está entre ellos
+  @filtros
+  Scenario: Obtener una lista de nombres de productos cuyo stock es igual a 0
+    * def productosStock0 = get maquinaExpendedora.inventario.secciones..productos[?(@.stock == 0)].nombre
+    * match productosStock0 == ['Mechero Zippo']
 
+  @filtros
+  Scenario: Filtrar todos los productos que tengan un precio mayor a 100
+    * def productosCaros = get maquinaExpendedora.inventario.secciones..productos[?(@.precio > 100)].nombre
+    * match productosCaros == ["Muñeca chochona","Radio transistor coche","Perrito piloto con gafas"]
 
-  # @deepscan
-  # Scenario: Validar que todos los campos de precios son numéricos
+  @filtros
+  Scenario: Comprobar que hay 2 productos en la sección de "Consolación"
+    * def productos = get maquinaExpendedora.inventario.secciones[?(@.tipo == "Consolación")].productos
+    * match productos[0] == '#[2]'
 
-
-  # @filtros
-  # Scenario: Encontrar el objeto del producto cuyo código es "B1" y validar que su nombre es "Perrito piloto con gafas"
-
-
-  # @filtros
-  # Scenario: Obtener una lista de nombres de productos cuyo stock es igual a 0
-
-
-  # @filtros
-  # Scenario: Filtrar todos los productos que tengan un precio mayor a 100
-
-
-  # @filtros
-  # Scenario: Comprobar que hay 2 productos en la sección de "Consolación"
-
-
-  # @fuzzy
-  # Scenario: Validar que "ultima_revision" sigue un patrón de fecha (YYYY-MM-DD)
+  @fuzzy
+  Scenario: Validar que "ultima_revision" sigue un patrón de fecha (YYYY-MM-DD)
+    * def ultimaRevision = get maquinaExpendedora.mantenimiento.ultima_revision
+    * match ultimaRevision == '#regex ^\\d{4}-[0-9]{2}-\\d{2}$'
 
 
   # @fuzzy
   # Scenario: Validar que cada objeto dentro del array "secciones" contiene las claves "tipo" y "productos"
 
 
-  # @fuzzy
-  # Scenario: Comprobar que la lista de "alertas" está vacía
+  @fuzzy
+  Scenario: Comprobar que la lista de "alertas" está vacía
+    * match maquinaExpendedora.estado.alertas == []
+    * match maquinaExpendedora.estado.alertas == '#[0]'
 
-
-  # @fuzzy
+    # @fuzzy
   # Scenario: Comprobar que "requiere_intervencion_urgente" es un booleano y es false
 
 
-  # @fuzzy
-  # Scenario: Comprobar que el "total_productos_vendidos" es un número mayor que 1000
+  @fuzzy
+  Scenario: Comprobar que el "total_productos_vendidos" es un número mayor que 1000
+    * assert maquinaExpendedora.estadisticas_globales.total_productos_vendidos > 1000
+    * match maquinaExpendedora.estadisticas_globales.total_productos_vendidos == '#? _ > 1000'
